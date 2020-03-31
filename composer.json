@@ -56,7 +56,7 @@
     "rareloop/lumberjack-core": "^4.3",
     "advanced-custom-fields/advanced-custom-fields-pro": "^5.0.0",
     "wpackagist-plugin/acf-content-analysis-for-yoast-seo": "^2.3",
-    "yoast/wordpress-seo": "^13.1"
+    "sybrew/the-seo-framework": "^4.0"
 
   },
   "require-dev": {
