@@ -4,6 +4,11 @@ const path = require("path");
 const TerserJSPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
+const purgecss = require("@fullhuman/postcss-purgecss")({
+  content: ["./**/*.twig"],
+  defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
+});
+
 const config = {
   //Your path to dist accessed from a browser
   distPath: __dirname + "/dist/",
@@ -73,10 +78,22 @@ module.exports = {
       },
       {
         test: /\.(sa|sc|c)ss$/,
+        exclude: /node_modules/,
         use: [
           MiniCssExtractPlugin.loader,
           "css-loader",
-          "postcss-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              ident: "postcss",
+              plugins: [
+                require("postcss-import"),
+                require("tailwindcss"),
+                require("autoprefixer"),
+                // ...(process.env.NODE_ENV === "production" ? [purgecss] : []),
+              ],
+            },
+          },
           "sass-loader",
         ],
       },
