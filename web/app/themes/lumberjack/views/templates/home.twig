@@ -1,10 +1,12 @@
 {% extends "base.twig" %}
 
 {% block content %}
-<main>
-    <h1>{{ title }}</h1>
-    <p>
-        {{ content|raw }}
-    </p>
+<main role="main">
+    <div class="container mx-auto">
+        <h1 class="text-4xl">{{ title }}</h1>
+        <p>
+            {{ content|raw }}
+        </p>
+    </div>
 </main>
 {% endblock %}
