@@ -10,7 +10,7 @@ use Rareloop\Lumberjack\Http\Responses\TimberResponse;
 use Rareloop\Lumberjack\Page;
 use Timber\Timber;
 
-class PageController extends Controller
+class HomePageController extends Controller
 {
     public function handle()
     {
@@ -21,6 +21,6 @@ class PageController extends Controller
         $context['title'] = $page->title;
         $context['content'] = $page->content;
 
-        return new TimberResponse('templates/generic-page.twig', $context);
+        return new TimberResponse('templates/home.twig', $context);
     }
 }
