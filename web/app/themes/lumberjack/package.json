@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "serve": "webpack --mode development --watch --display errors-only",
-    "build": "webpack --mode production"
+    "build": "NODE_ENV=production webpack --mode production"
   },
   "author": "",
   "license": "ISC",
