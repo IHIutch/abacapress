@@ -35,6 +35,7 @@ class Project extends Post
             ],
             'menu_icon' => __('dashicons-format-image'),
             'public' => true,
+            'has_archive'   => true,
         ];
     }
 }
