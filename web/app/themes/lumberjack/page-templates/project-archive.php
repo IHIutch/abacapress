@@ -19,7 +19,7 @@ class ProjectArchiveController extends Controller
         $context = Timber::get_context();
         $page = new Page();
 
-        $posts = (new QueryBuilder)->wherePostType([
+        $projects = (new QueryBuilder)->wherePostType([
             Project::getPostType(),
         ])
             ->orderBy('date', 'asc')
@@ -28,7 +28,7 @@ class ProjectArchiveController extends Controller
         $context  = [
             'title' => $page->title,
             'content' => $page->content,
-            'projects' => $posts
+            'projects' => $projects
         ];
 
         return new TimberResponse('templates/project-archive.twig', $context);

@@ -31,7 +31,7 @@ class Project extends Post
             'labels' => [
                 'name' => __('Projects'),
                 'singular_name' => __('Project'),
-                'add_new_item' => __('Add New Product'),
+                'add_new_item' => __('Add New Project'),
             ],
             'menu_icon' => __('dashicons-format-image'),
             'public' => true,
