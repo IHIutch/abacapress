@@ -10,7 +10,7 @@ use Rareloop\Lumberjack\Http\Responses\TimberResponse;
 use Rareloop\Lumberjack\Page;
 use Timber\Timber;
 
-class HomePageController extends Controller
+class HomeController extends Controller
 {
     public function handle()
     {
