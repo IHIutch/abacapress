@@ -20,6 +20,9 @@ class HomePageController extends Controller
         $context['post'] = $page;
         $context['title'] = $page->title;
         $context['content'] = $page->content;
+        $context['text_content'] = get_field('text_content');
+        $context['offerings'] = get_field('offerings');
+        $context['featured'] = get_field('featured');
 
         return new TimberResponse('templates/home.twig', $context);
     }
