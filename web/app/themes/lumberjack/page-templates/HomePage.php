@@ -17,12 +17,13 @@ class HomePageController extends Controller
         $context = Timber::get_context();
         $page = new Page();
 
-        $context['post'] = $page;
-        $context['title'] = $page->title;
-        $context['content'] = $page->content;
-        $context['text_content'] = get_field('text_content');
-        $context['offerings'] = get_field('offerings');
-        $context['featured'] = get_field('featured');
+        $context  = [
+            'title' => $page->title,
+            'content' => $page->content,
+            'text_content' => get_field('text_content'),
+            'offerings' => get_field('offerings'),
+            'featured' => get_field('featured')
+        ];
 
         return new TimberResponse('templates/home.twig', $context);
     }
