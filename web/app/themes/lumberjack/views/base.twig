@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html {{ site.language_attributes }}>
 
-    {% include 'html-header.twig' %}
+{% include 'html-header.twig' %}
 
-    <body class="{{ body_class }}">
+<body class="{{ body_class }} font-karla">
 
-        {% block content %}
-            <p>Sorry, no content</p>
-        {% endblock %}
+    {% block content %}
+    <p>Sorry, no content</p>
+    {% endblock %}
 
-        {% include 'html-footer.twig' %}
-    </body>
+    {% include 'html-footer.twig' %}
+</body>
+
 </html>

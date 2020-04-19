@@ -82,7 +82,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(jpg|svg|woff|woff2|ttf|eot|png|jpeg)(\?.*$|$)/,
+        test: /\.(jpg|svg|woff|woff2|ttf|eot|png|jpeg|css)(\?.*$|$)/,
         loader: "file-loader",
       },
     ],

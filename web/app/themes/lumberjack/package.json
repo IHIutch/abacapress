@@ -11,7 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
-    "core-js": "^3.0.1"
+    "core-js": "^3.0.1",
+    "typeface-barlow-condensed": "0.0.71",
+    "typeface-karla": "0.0.72"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.3",
@@ -35,6 +37,7 @@
     "sass-loader": "^8.0.2",
     "tailwindcss": "^1.2.0",
     "terser-webpack-plugin": "^1.2.3",
+    "url-loader": "^4.1.0",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11"
   }
