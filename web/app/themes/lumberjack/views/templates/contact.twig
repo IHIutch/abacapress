@@ -23,7 +23,7 @@
                                     Email
                                 </span>
                             </div>
-                            <span>email@email.com</span>
+                            <span>{{email}}</span>
                         </div>
                         <div class="mb-8">
                             <div class="flex mb-2">
@@ -31,7 +31,7 @@
                                     Phone
                                 </span>
                             </div>
-                            <span>123-456-7890</span>
+                            <span>{{phone_number}}</span>
                         </div>
                         <div class="mb-14">
                             <div class="flex mb-2">
@@ -40,14 +40,14 @@
                                 </span>
                             </div>
                             <div class="flex">
-                                <div class="flex align-center">
+                                <a href="{{facebook_link}}" class="flex align-center">
                                     <i data-feather="facebook"></i>
                                     <span class="ml-3">Facebook</span>
-                                </div>
-                                <div class="flex align-center ml-14">
+                                </a>
+                                <a href="{{instagram_link}}" class="flex align-center ml-14">
                                     <i data-feather="instagram"></i>
                                     <span class="ml-3">Instagram</span>
-                                </div>
+                                </a>
                             </div>
                         </div>
                         <div class="relative pb-2/3 border-red border-2 mb-6">
@@ -64,11 +64,7 @@
                                 </span>
                             </div>
                             <p>
-                                9 Lafayette Ave.
-                                <br>
-                                Buffalo, NY 14213
-                                <br>
-                                USA
+                                {{address}}
                             </p>
                         </div>
                     </div>
