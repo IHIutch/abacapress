@@ -8,7 +8,9 @@
         </div>
         {% for project in projects %}
         <div class="mb-4 w-1/3 px-4">
-            <span class="uppercase">{{project.post_date | date("F d, Y") }}</span>
+            <span class="text-sm uppercase font-barlow-condensed text-red tracking-widest font-semibold">
+                {{project.post_date | date("F d, Y") }}
+            </span>
             <div>
                 <span class="text-4xl">{{project.post_title}}</span>
                 <p>
@@ -16,7 +18,10 @@
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
                 </p>
             </div>
-            <div><a class="text-blue-500" href="{{project.link}}">Keep Reading</a></div>
+            <div>
+                <a class="uppercase font-barlow-condensed text-red tracking-widest font-semibold"
+                    href="{{project.link}}">Keep Reading</a>
+            </div>
         </div>
         {% endfor %}
     </div>

@@ -5,7 +5,7 @@
     <div class="flex -mx-4 mb-56">
         <div class="w-1/3 px-4">
             <div>
-                <h1 class="text-2xl uppercase">
+                <h1 class="text-2xl uppercase font-barlow-condensed text-red font-semibold tracking-widest">
                     {{ text_content.subheading }}
                 </h1>
                 <span class="text-6xl leading-tight">{{ text_content.heading }}</span>
@@ -29,7 +29,7 @@
     </div>
     <div class="flex -mx-4">
         <div class="w-1/2 px-4">
-            <h2 class="text-xl uppercase">
+            <h2 class="text-xl uppercase text-red font-semibold tracking-widest font-barlow-condensed">
                 {{featured.subtitle}}
             </h2>
             <h3 class="text-6xl">
@@ -38,8 +38,10 @@
             <div class="text-2xl">
                 {{featured.description}}
             </div>
-            <a class="text-lg uppercase text-blue-500"
-                href="{{featured.link.link_location}}">{{featured.link.link_text}}</a>
+            <a class="text-lg uppercase text-red font-semibold tracking-widest font-barlow-condensed"
+                href="{{featured.link.link_location}}">
+                {{featured.link.link_text}}
+            </a>
         </div>
         <div class="w-1/2 px-4">
             img
