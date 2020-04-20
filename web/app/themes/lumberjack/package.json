@@ -12,6 +12,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
     "core-js": "^3.0.1",
+    "feather-icons": "^4.28.0",
     "typeface-barlow-condensed": "0.0.71",
     "typeface-karla": "0.0.72"
   },
