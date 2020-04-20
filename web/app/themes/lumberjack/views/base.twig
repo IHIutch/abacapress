@@ -5,10 +5,13 @@
 
 <body class="{{ body_class }} font-karla bg-tan text-brown">
 
-    {% block content %}
-    <p>Sorry, no content</p>
-    {% endblock %}
+    <div class="pt-32">
+        {% block content %}
+        <p>Sorry, no content</p>
+        {% endblock %}
+    </div>
 
+    {% include 'components/footer.twig' %}
     {% include 'html-footer.twig' %}
 </body>
 
