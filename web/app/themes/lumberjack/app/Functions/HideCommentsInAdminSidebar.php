@@ -2,12 +2,9 @@
 
 namespace App\Functions;
 
-class HideComments
+class HideCommentsInAdminSidebar
 {
-    /**
-     * Enqueue scripts
-     */
-    public static function hideComments()
+    public static function hideCommentsInAdminSidebar()
     {
         add_action('admin_menu', function () {
             remove_menu_page('edit-comments.php');

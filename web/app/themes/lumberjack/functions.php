@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Lumberjack;
-use App\Functions\Assets;
-use App\Functions\HideComments;
+use App\Functions\EnqueueAssets;
+use App\Functions\HideCommentsInAdminSidebar;
+use App\Functions\AddAcfOptionsPage;
 
 // Create the Application Container
 $app = require_once('bootstrap/app.php');
@@ -13,8 +14,9 @@ $lumberjack->bootstrap();
 
 // Custom Functions
 // enqueue assets class
-Assets::enqueueAssets();
-HideComments::hideComments();
+EnqueueAssets::enqueueAssets();
+HideCommentsInAdminSidebar::hideCommentsInAdminSidebar();
+AddAcfOptionsPage::addAcfOptionsPage();
 
 // Import our routes file
 require_once('routes.php');
