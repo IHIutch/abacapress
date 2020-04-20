@@ -19,16 +19,10 @@ class ContactController extends Controller
         $page = new Page();
         $context = Timber::get_context();
 
-        $context  = [
+        $context = array_merge($context, [
             'site' => $site,
             'title' => $page->title,
-
-            'phone_number' => get_field('phone_number', 'options'),
-            'email' => get_field('email', 'options'),
-            'address' => get_field('address', 'options'),
-            'facebook_link' => get_field('facebook_link', 'options'),
-            'instagram_link' => get_field('instagram_link', 'options'),
-        ];
+        ]);
 
         return new TimberResponse('templates/contact.twig', $context);
     }
