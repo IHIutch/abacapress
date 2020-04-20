@@ -82,8 +82,14 @@ module.exports = {
         ],
       },
       {
-        test: /\.(jpg|svg|woff|woff2|ttf|eot|png|jpeg|css)(\?.*$|$)/,
+        test: /\.(jpg|png|svg)(\?.*$|$)/,
         loader: "file-loader",
+      },
+      {
+        test: /\.(woff|woff2|ttf|otf|css)$/,
+        use: {
+          loader: "url-loader",
+        },
       },
     ],
   },

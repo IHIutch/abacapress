@@ -10,6 +10,11 @@ module.exports = {
         brown: "#3D1F00",
         red: "#FF4552",
       },
+      fontFamily: {
+        gotu: "Gotu",
+        karla: "Karla",
+        "barlow-condensed": "Barlow Condensed",
+      },
     },
   },
 };
