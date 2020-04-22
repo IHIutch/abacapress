@@ -7,7 +7,8 @@
         {% if section.acf_fc_layout == 'single_column_image' %}
         <div class="w-8/12 mx-auto">
             <figure>
-                <img class="mb-4" src="{{section.image.url}}" alt="">
+                <img class="mb-4" src="{{section.image.url}}" {% if section.image.alt %} alt="{{section.image.alt}}"
+                    {% endif %}>
                 {% if section.caption %}
                 <figcaption class="text-sm">
                     {{section.caption}}
@@ -19,7 +20,8 @@
         {% if section.acf_fc_layout == 'double_column_image' %}
         <div class="w-6/12 px-4 flex items-center">
             <figure>
-                <img class="mb-4" src="{{section.group_1.image.url}}" alt="">
+                <img class="mb-4" src="{{section.group_1.image.url}}" {% if section.group_1.image.alt %}
+                    alt="{{section.group_1.image.alt}}" {% endif %}>
                 {% if section.group_1.caption %}
                 <figcaption class="text-sm">
                     {{section.group_1.caption}}
@@ -29,7 +31,8 @@
         </div>
         <div class="w-6/12 px-4 flex items-center">
             <figure>
-                <img class="mb-4" src="{{section.group_2.image.url}}" alt="">
+                <img class="mb-4" src="{{section.group_2.image.url}}" {% if section.group_2.image.alt %}
+                    alt="{{section.group_2.image.alt}}" {% endif %}>
                 {% if section.group_2.caption %}
                 <figcaption class="text-sm">
                     {{section.group_2.caption}}
