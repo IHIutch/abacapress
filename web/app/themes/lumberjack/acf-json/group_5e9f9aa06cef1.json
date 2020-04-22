@@ -1,0 +1,136 @@
+{
+    "key": "group_5e9f9aa06cef1",
+    "title": "General Page",
+    "fields": [
+        {
+            "key": "field_5e9f9aa6b67b7",
+            "label": "Content",
+            "name": "content",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layouts": {
+                "layout_5e9f9ad0c71f2": {
+                    "key": "layout_5e9f9ad0c71f2",
+                    "name": "single_column_image",
+                    "label": "Single Column Image",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5e9f9ad3b67b9",
+                            "label": "Single Column Image",
+                            "name": "single_column_image",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5e9f999c90de5"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5e9f9c1b576a0": {
+                    "key": "layout_5e9f9c1b576a0",
+                    "name": "double_column_image",
+                    "label": "Double Column Image",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5e9f9c26576a1",
+                            "label": "Double Column Image",
+                            "name": "double_column_image",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5e9f9a112474b"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5e9f9c41576a2": {
+                    "key": "layout_5e9f9c41576a2",
+                    "name": "text_area",
+                    "label": "Text Area",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5e9f9c49576a3",
+                            "label": "Text Area",
+                            "name": "text_area",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "maxlength": "",
+                            "rows": "",
+                            "new_lines": "br"
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "button_label": "Add Section",
+            "min": "",
+            "max": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-templates\/general.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": 1,
+    "description": "",
+    "modified": 1587518561
+}

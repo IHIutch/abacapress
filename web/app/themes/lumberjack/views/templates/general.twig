@@ -1,0 +1,49 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<main role="main" class="container mx-auto">
+    {% for section in content %}
+    <div class="flex -mx-4 mb-56">
+        {% if section.acf_fc_layout == 'single_column_image' %}
+        <div class="w-8/12 mx-auto">
+            <figure>
+                <img class="mb-4" src="{{section.image.url}}" alt="">
+                {% if section.caption %}
+                <figcaption class="text-sm">
+                    {{section.caption}}
+                </figcaption>
+                {% endif %}
+            </figure>
+        </div>
+        {% endif %}
+        {% if section.acf_fc_layout == 'double_column_image' %}
+        <div class="w-6/12 px-4 flex items-center">
+            <figure>
+                <img class="mb-4" src="{{section.group_1.image.url}}" alt="">
+                {% if section.group_1.caption %}
+                <figcaption class="text-sm">
+                    {{section.group_1.caption}}
+                </figcaption>
+                {% endif %}
+            </figure>
+        </div>
+        <div class="w-6/12 px-4 flex items-center">
+            <figure>
+                <img class="mb-4" src="{{section.group_2.image.url}}" alt="">
+                {% if section.group_2.caption %}
+                <figcaption class="text-sm">
+                    {{section.group_2.caption}}
+                </figcaption>
+                {% endif %}
+            </figure>
+        </div>
+        {% endif %}
+        {% if section.acf_fc_layout == 'text_area' %}
+        <div class="w-1/2 mx-auto text-2xl">
+            {{section.text_area}}
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</main>
+{% endblock %}
