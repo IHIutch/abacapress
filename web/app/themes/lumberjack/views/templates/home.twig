@@ -1,55 +1,54 @@
 {% extends "base.twig" %}
 
 {% block content %}
-<main role="main" class="container mx-auto">
-    <div class="flex -mx-4 mb-56">
-        <div class="w-1/3 px-4">
-            <div>
-                <h1 class="text-2xl uppercase font-barlow-condensed text-red font-semibold tracking-widest">
-                    {{ text_content.subheading }}
-                </h1>
-                <span class="text-6xl leading-tight font-gotu">{{ text_content.heading }}</span>
-                <div class="text-2xl">
-                    {{text_content.text}}
-                </div>
-            </div>
-        </div>
-        <div class="w-2/3">
-            <div class="flex -mx-4">
-                {% for offer in offerings.offering %}
-                <div class="w-1/2 px-4">
-                    <div class="mb-2">
-                        <span class="text-4xl">{{offer.title}}</span>
-                    </div>
-                    <hr class="border-red border-b-4 w-8 mb-6">
-                    <div class="text-lg">
-                        {{offer.description}}
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-    <div class="flex -mx-4">
-        <div class="w-1/2 px-4">
-            <h2 class="text-xl uppercase text-red font-semibold tracking-widest font-barlow-condensed">
-                {{featured.subtitle}}
-            </h2>
-            <h3 class="text-6xl">
-                {{featured.title}}
-            </h3>
-            <div class="text-2xl mb-14">
-                {{featured.description}}
-            </div>
-            <a class="text-lg uppercase text-red font-semibold tracking-widest font-barlow-condensed"
-                href="{{featured.link.link_location}}">
-                {{featured.link.link_text}}
-                <span class="ml-2">&rarr;</span>
-            </a>
-        </div>
-        <div class="w-1/2 px-4">
-            img
-        </div>
-    </div>
-</main>
+	<main role="main" class="container mx-auto">
+		<div class="flex -mx-4 mb-56">
+			<div class="w-1/3 px-4">
+				<div>
+					<h1 class="text-2xl uppercase font-barlow-condensed text-red font-semibold tracking-widest">
+						{{ text_content.subheading }}
+					</h1>
+					<span class="text-6xl leading-tight font-gotu">{{ text_content.heading }}</span>
+					<div class="text-2xl">
+						{{text_content.text}}
+					</div>
+				</div>
+			</div>
+			<div class="w-2/3">
+				<div class="flex -mx-4">
+					{% for offer in offerings.offering %}
+						<div class="w-1/2 px-4">
+							<div class="mb-2">
+								<span class="text-4xl font-gotu">{{offer.title}}</span>
+							</div>
+							<hr class="border-red border-b-4 w-8 mb-6">
+							<div class="text-lg">
+								{{offer.description}}
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		<div class="flex -mx-4">
+			<div class="w-1/2 px-4">
+				<h2 class="text-xl uppercase text-red font-semibold tracking-widest font-barlow-condensed">
+					{{featured.subtitle}}
+				</h2>
+				<h3 class="text-6xl font-gotu">
+					{{featured.title}}
+				</h3>
+				<div class="text-2xl mb-14">
+					{{featured.description}}
+				</div>
+				<a class="text-lg uppercase text-red font-semibold tracking-widest font-barlow-condensed" href="{{featured.link.link_location}}">
+					{{featured.link.link_text}}
+					<span class="ml-2">&rarr;</span>
+				</a>
+			</div>
+			<div class="w-1/2 px-4">
+				img
+			</div>
+		</div>
+	</main>
 {% endblock %}
