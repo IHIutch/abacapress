@@ -4,8 +4,9 @@
 {% include 'html-header.twig' %}
 
 <body class="{{ body_class }} font-karla bg-tan text-brown antialiased">
+    {% include 'components/nav.twig' %}
 
-    <div class="pt-32">
+    <div class="mt-40">
         {% block content %}
         <p>Sorry, no content</p>
         {% endblock %}
