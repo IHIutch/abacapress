@@ -20,6 +20,7 @@ AddAcfOptionsPage::addAcfOptionsPage();
 AddAcfOptionsPage::accessAcfOptionsGlobally();
 EditorMetaBoxUpdates::yoastToEditorBottom();
 EditorMetaBoxUpdates::hideUnusedMetaBoxes();
+EditorMetaBoxUpdates::hideDefaultEditor();
 
 // Import our routes file
 require_once('routes.php');
