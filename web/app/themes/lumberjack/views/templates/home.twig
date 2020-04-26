@@ -1,87 +1,90 @@
 {% extends "base.twig" %}
 
 {% block content %}
-<main class="container mx-auto px-4" role="main">
-	<div class="flex -mx-4 mb-56">
-		<div class="w-1/3 px-4">
-			<div>
-				<h1 class="text-2xl uppercase font-barlow-condensed text-red font-semibold tracking-widest">
-					{{ text_content.subheading }}
-				</h1>
-				<span class="text-6xl leading-tight font-gotu">{{ text_content.heading }}</span>
-				<div class="text-2xl">
-					{{text_content.text}}
+<main role="main">
+	<div class="container mx-auto px-4">
+		<div class="flex -mx-4 mb-56">
+			<div class="w-1/3 px-4">
+				<div>
+					<h1 class="text-2xl uppercase font-barlow-condensed text-red font-semibold tracking-widest">
+						{{ text_content.subheading }}
+					</h1>
+					<span class="text-6xl leading-tight font-gotu">{{ text_content.heading }}</span>
+					<div class="text-2xl">
+						{{text_content.text}}
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="w-2/3">
-			<div class="flex -mx-4">
-				{% for offer in offerings %}
-				<div class="w-1/2 px-4">
-					{% if offer.image %}
-					<div>
-						<img src="{{offer.image.url}}" {% if offer.image.alt %} alt="{{offer.image.alt}}" {% endif %}>
+			<div class="w-2/3">
+				<div class="flex -mx-4">
+					{% for offer in offerings %}
+					<div class="w-1/2 px-4">
+						{% if offer.image %}
+						<div>
+							<img src="{{offer.image.url}}" {% if offer.image.alt %} alt="{{offer.image.alt}}"
+								{% endif %}>
+						</div>
+						{% endif %}
+						<div class="mb-2">
+							<span class="text-4xl font-gotu">{{offer.title}}</span>
+						</div>
+						<hr class="border-red border-b-4 w-8 mb-6">
+						<div class="text-lg">
+							{{offer.description}}
+						</div>
 					</div>
-					{% endif %}
-					<div class="mb-2">
-						<span class="text-4xl font-gotu">{{offer.title}}</span>
-					</div>
-					<hr class="border-red border-b-4 w-8 mb-6">
-					<div class="text-lg">
-						{{offer.description}}
-					</div>
+					{% endfor %}
 				</div>
-				{% endfor %}
 			</div>
 		</div>
 	</div>
-	<div class="flex -mx-4 mb-56">
-		<div class="px-4 w-full swiper-container h-64">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide px-4">
-					<div class="bg-white h-64">
-						Slide 1
+	<div class="px-4">
+		<div class="flex -mx-4 mb-56">
+			<div class="px-4 w-full swiper-container">
+				<div class="swiper-wrapper">
+					{% for project in projects %}
+					<div class="swiper-slide px-4">
+						<div class="">
+							{% if project.image %}
+							<img src="{{project.image.url}}" alt="">
+							{% endif %}
+							<div class="mb-2">
+								<span class="text-3xl font-gotu">{{project.title}}</span>
+							</div>
+							<hr class="border-red border-b-4 w-8 mb-6">
+							<div>
+								<p>{{project.custom.content_0_text_area}}</p>
+							</div>
+						</div>
 					</div>
+					{% endfor %}
 				</div>
-				<div class="swiper-slide px-4">
-					<div class="bg-white h-64">
-						Slide 2
-					</div>
-				</div>
-				<div class="swiper-slide px-4">
-					<div class="bg-white h-64">
-						Slide 3
-					</div>
-				</div>
-				<div class="swiper-slide px-4">
-					<div class="bg-white h-64">
-						Slide 4
-					</div>
-				</div>
+				<div class="swiper-pagination"></div>
 			</div>
-			<div class="swiper-pagination"></div>
 		</div>
 	</div>
-	<div class="flex -mx-4 items-center">
-		<div class="w-1/2 px-4">
-			<h2 class="text-xl uppercase text-red font-semibold tracking-widest font-barlow-condensed">
-				{{featured.subtitle}}
-			</h2>
-			<h3 class="text-6xl font-gotu">
-				{{featured.title}}
-			</h3>
-			<div class="text-2xl mb-14">
-				{{featured.description}}
+	<div class="container mx-auto px-4">
+		<div class="flex -mx-4 items-center">
+			<div class="w-1/2 px-4">
+				<h2 class="text-xl uppercase text-red font-semibold tracking-widest font-barlow-condensed">
+					{{featured.subtitle}}
+				</h2>
+				<h3 class="text-6xl font-gotu">
+					{{featured.title}}
+				</h3>
+				<div class="text-2xl mb-14">
+					{{featured.description}}
+				</div>
+				<a class="text-lg uppercase text-red font-semibold tracking-widest font-barlow-condensed"
+					href="{{featured.link.link_location}}">
+					{{featured.link.link_text}}
+					<span class="ml-2">&rarr;</span>
+				</a>
 			</div>
-			<a class="text-lg uppercase text-red font-semibold tracking-widest font-barlow-condensed"
-				href="{{featured.link.link_location}}">
-				{{featured.link.link_text}}
-				<span class="ml-2">&rarr;</span>
-			</a>
-		</div>
-		<div class="w-1/2 px-4">
-			<img class="w-full" src="{{featured.image.url}}" {% if featured.image.alt %} alt="{{featured.image.alt}}"
-				{% endif %}>
+			<div class="w-1/2 px-4">
+				<img class="w-full" src="{{featured.image.url}}" {% if featured.image.alt %}
+					alt="{{featured.image.alt}}" {% endif %}>
+			</div>
 		</div>
 	</div>
 </main>
