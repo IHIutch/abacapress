@@ -1,76 +1,97 @@
 {% extends "base.twig" %}
 
 {% block content %}
-<main class="container mx-auto px-4" role="main">
+<main id="app" class="container mx-auto px-4" role="main">
     <div class="flex -mx-4">
+        {% verbatim %}
         <div class="mb-4 w-3/12 px-4">
-            {% for project in projects %}
-            <div>
-                <button type="button" class="block w-full text-left mb-8 outline-none transition-fast" data-project
-                    data-project-link="{{project.link}}" data-project-thumbnail="{{project.thumbnail}}"
-                    data-project-excerpt="{{project.custom.content_0_text_area}}">
+            <div v-for="(project, idx) in projects">
+                <button type="button" class="block w-full text-left mb-8 outline-none transition-fast"
+                    :class="preview.id == idx ? 'border-red border-l-4 -ml-4 pl-3' : 'border-l-0 ml-0 pl-0'"
+                    @click="assignToProjectPreview(idx)">
                     <div class="">
                         <span class="text-sm uppercase font-barlow-condensed text-red tracking-widest font-semibold">
-                            {{project.post_date | date("F d, Y") }}
+                            {{project.post_date}}
                         </span>
                         <div>
                             <div>
                                 <span class="text-2xl font-gotu">{{project.post_title}}</span>
                             </div>
                             <p>
-                                {{ project.preview.length(50).end('...') }}
                             </p>
                         </div>
                     </div>
                 </button>
             </div>
-            {% endfor %}
         </div>
-        <div class="px-4 w-9/12">
+        <div class="px-4 w-9/12 relative">
             <div class="relative pb-9/16 mb-2">
-                <img data-preview-thumbnail src="" class="absolute w-full h-full object-cover" />
+                <transition name="fade">
+                    <img :key="preview.id" :src="preview.thumbnail"
+                        class="transition-fast absolute w-full h-full object-cover" />
+                </transition>
             </div>
             <div class="flex justify-between">
-                <a data-preview-link
-                    class="text-lg uppercase text-red font-semibold tracking-widest font-barlow-condensed" href="#">
+                <a class="text-lg uppercase text-red font-semibold tracking-widest font-barlow-condensed"
+                    :href="preview.link">
                     Check out this project
                     <span class="ml-2">&rarr;</span>
                 </a>
-                <div class="w-2/3">
-                    <span data-preview-excerpt class="text-sm"></span>
+                <div class="w-2/3 relative">
+                    <transition name="fade">
+                        <span :key="preview.id" class="transition-fast absolute text-sm">{{preview.excerpt}}</span>
+                    </transition>
                 </div>
             </div>
         </div>
+        {% endverbatim %}
     </div>
 </main>
 
-<script>
-    const projects = document.querySelectorAll("[data-project]");
-    projects.forEach((project, idx) => {
-        if (idx == 0) {
-            assignToProjectPreview(project)
-        }
-        project.addEventListener("click", function (e) {
-            assignToProjectPreview(project)
-        });
-    })
+{% set formattedProjects = [] %}
+{% for project in projects %}
+{% set formattedProjects = formattedProjects|merge([{ post_title: project.post_title, post_date: project.post_date | date("F d, Y"), excerpt: project.custom.content_0_text_area, link: project.link, thumbnail: project.thumbnail.src }]) %}
+{% endfor %}
 
-    function assignToProjectPreview(active) {
-        projects.forEach((project) => {
-            project.classList.add("border-l-0", "ml-0", "pl-0")
-            project.classList.remove("border-red", "border-l-4", "-ml-4", "pl-3")
-        })
-        active.classList.remove("border-l-0", "ml-0", "pl-0")
-        active.classList.add("border-red", "border-l-4", "-ml-4", "pl-3")
-        var data = {
-            link: active.getAttribute('data-project-link'),
-            thumbnail: active.getAttribute('data-project-thumbnail'),
-            excerpt: active.getAttribute('data-project-excerpt'),
-        };
-        document.querySelector("[data-preview-thumbnail]").src = data.thumbnail;
-        document.querySelector("[data-preview-link]").href = data.link;
-        document.querySelector("[data-preview-excerpt]").textContent = data.excerpt;
-    }
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: function () {
+            return {
+                projects: {
+                    {
+                        formattedProjects | json_encode()
+                    }
+                },
+                preview: {
+                    id: "",
+                    link: "",
+                    thumbnail: "",
+                    excerpt: ""
+                }
+            };
+        },
+        methods: {
+            assignToProjectPreview: function (idx) {
+                this.preview = {
+                    id: idx,
+                    link: this.projects[idx].link,
+                    thumbnail: this.projects[idx].thumbnail,
+                    excerpt: this.projects[idx].excerpt
+                }
+            }
+        },
+        mounted: function () {
+            this.assignToProjectPreview(0)
+        }
+    });
 </script>
+
+<style>
+    .fade-enter,
+    .fade-leave-to {
+        opacity: 0;
+    }
+</style>
 
 {% endblock %}
