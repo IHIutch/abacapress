@@ -13,6 +13,7 @@
     "@babel/polyfill": "^7.4.4",
     "core-js": "^3.6.5",
     "feather-icons": "^4.28.0",
+    "swiper": "^5.3.8",
     "typeface-barlow-condensed": "0.0.71",
     "typeface-karla": "0.0.72"
   },
