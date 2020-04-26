@@ -1,12 +1,4 @@
 <?php
-/**
- * The template for displaying Archive pages.
- *
- * Used to display archive-type pages if nothing more specific matches a query.
- * For example, puts together date-based pages if no date.php file exists.
- *
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
- */
 
 namespace App;
 
@@ -23,11 +15,11 @@ class ArchiveController extends Controller
         $data['title'] = 'Archive';
 
         if (is_day()) {
-            $data['title'] = 'Archive: '.get_the_date('D M Y');
+            $data['title'] = 'Archive: ' . get_the_date('D M Y');
         } elseif (is_month()) {
-            $data['title'] = 'Archive: '.get_the_date('M Y');
+            $data['title'] = 'Archive: ' . get_the_date('M Y');
         } elseif (is_year()) {
-            $data['title'] = 'Archive: '.get_the_date('Y');
+            $data['title'] = 'Archive: ' . get_the_date('Y');
         } elseif (is_tag()) {
             $data['title'] = single_tag_title('', false);
         } elseif (is_category()) {
@@ -39,6 +31,6 @@ class ArchiveController extends Controller
         // TODO: Currently only works for posts, fix for custom post types
         $data['posts'] = Post::query();
 
-        return new TimberResponse('templates/posts.twig', $data);
+        return new TimberResponse('templates/post-archive.twig', $data);
     }
 }

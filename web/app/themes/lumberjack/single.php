@@ -22,6 +22,6 @@ class SingleController extends Controller
         $context['title'] = $post->title;
         $context['content'] = $post->content;
 
-        return new TimberResponse('templates/generic-page.twig', $context);
+        return new TimberResponse('templates/general.twig', $context);
     }
 }
