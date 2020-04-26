@@ -44,28 +44,28 @@
 				<div class="swiper-wrapper">
 					{% for project in projects %}
 					<div class="swiper-slide px-4">
-						<div class="">
-							{% if project.image %}
-							<img src="{{project.image.url}}" alt="">
-							{% endif %}
-							<div class="mb-2">
-								<span
-									class="text-sm uppercase font-barlow-condensed text-red tracking-widest font-semibold">
-									{{project.post_date | date("F d, Y") }}
-								</span>
-							</div>
-							<div class="mb-2">
-								<span class="text-3xl font-gotu">{{project.title}}</span>
-							</div>
-							<div class="mb-8">
-								<p class="text-lg">{{project.custom.content_0_text_area}}</p>
-							</div>
-							<a class="uppercase text-red font-semibold tracking-widest font-barlow-condensed"
-								href="{{project.link}}">
-								Keep Reading
-								<span class="ml-2">&rarr;</span>
-							</a>
+						{% if project.thumbnail %}
+						<div class="relative pb-9/16 mb-2">
+							<img class="absolute w-full h-full object-cover" src="{{project.thumbnail.src}}">
 						</div>
+						{% endif %}
+						<div>
+							<span
+								class="text-sm uppercase font-barlow-condensed text-red tracking-widest font-semibold">
+								{{project.post_date | date("F d, Y") }}
+							</span>
+						</div>
+						<div class="mb-2">
+							<span class="text-3xl font-gotu">{{project.title}}</span>
+						</div>
+						<div class="mb-6">
+							<p class="text-lg">{{project.custom.content_0_text_area}}</p>
+						</div>
+						<a class="uppercase text-red font-semibold tracking-widest font-barlow-condensed"
+							href="{{project.link}}">
+							Keep Reading
+							<span class="ml-2">&rarr;</span>
+						</a>
 					</div>
 					{% endfor %}
 				</div>
