@@ -27,11 +27,3 @@ require_once('routes.php');
 
 // Set global params in the Timber context
 add_filter('timber_context', [$lumberjack, 'addToContext']);
-
-// add_filter('timber_context', 'mytheme_timber_context');
-
-// function mytheme_timber_context($context)
-// {
-//     $context['options'] = get_fields('options');
-//     return $context;
-// }

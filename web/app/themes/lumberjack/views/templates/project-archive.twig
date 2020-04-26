@@ -5,42 +5,72 @@
     <div class="flex -mx-4">
         <div class="mb-4 w-3/12 px-4">
             {% for project in projects %}
-            <div class="mb-8">
-                <div class="border-red border-l-4 -ml-4 pl-3">
-                    <span class="text-sm uppercase font-barlow-condensed text-red tracking-widest font-semibold">
-                        {{project.post_date | date("F d, Y") }}
-                    </span>
-                    <div>
+            <div>
+                <button type="button" class="block w-full text-left mb-8 outline-none transition-fast" data-project
+                    data-project-link="{{project.link}}" data-project-thumbnail="{{project.thumbnail}}"
+                    data-project-excerpt="{{project.custom.content_0_text_area}}">
+                    <div class="">
+                        <span class="text-sm uppercase font-barlow-condensed text-red tracking-widest font-semibold">
+                            {{project.post_date | date("F d, Y") }}
+                        </span>
                         <div>
-                            <span class="text-2xl font-gotu">{{project.post_title}}</span>
+                            <div>
+                                <span class="text-2xl font-gotu">{{project.post_title}}</span>
+                            </div>
+                            <p>
+                                {{ project.preview.length(50).end('...') }}
+                            </p>
                         </div>
-                        <p>
-                            {{ project.preview.length(50).end('...') }}
-                        </p>
                     </div>
-                </div>
+                </button>
             </div>
             {% endfor %}
         </div>
         <div class="px-4 w-9/12">
-            <div class="relative pb-9/16 border-red border-2 mb-2">
-                <div class="absolute w-full h-full p-1">
-                    <div class="w-full h-full bg-gray-500">
-
-                    </div>
-                </div>
+            <div class="relative pb-9/16 mb-2">
+                <img data-preview-thumbnail src="" class="absolute w-full h-full object-cover" />
             </div>
             <div class="flex justify-between">
-                <a class="text-lg uppercase text-red font-semibold tracking-widest font-barlow-condensed" href="#">
+                <a data-preview-link
+                    class="text-lg uppercase text-red font-semibold tracking-widest font-barlow-condensed" href="#">
                     Check out this project
                     <span class="ml-2">&rarr;</span>
                 </a>
                 <div class="w-2/3">
-                    <span class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna… </span>
+                    <span data-preview-excerpt class="text-sm"></span>
                 </div>
             </div>
         </div>
     </div>
 </main>
+
+<script>
+    const projects = document.querySelectorAll("[data-project]");
+    projects.forEach((project, idx) => {
+        if (idx == 0) {
+            assignToProjectPreview(project)
+        }
+        project.addEventListener("click", function (e) {
+            assignToProjectPreview(project)
+        });
+    })
+
+    function assignToProjectPreview(active) {
+        projects.forEach((project) => {
+            project.classList.add("border-l-0", "ml-0", "pl-0")
+            project.classList.remove("border-red", "border-l-4", "-ml-4", "pl-3")
+        })
+        active.classList.remove("border-l-0", "ml-0", "pl-0")
+        active.classList.add("border-red", "border-l-4", "-ml-4", "pl-3")
+        var data = {
+            link: active.getAttribute('data-project-link'),
+            thumbnail: active.getAttribute('data-project-thumbnail'),
+            excerpt: active.getAttribute('data-project-excerpt'),
+        };
+        document.querySelector("[data-preview-thumbnail]").src = data.thumbnail;
+        document.querySelector("[data-preview-link]").href = data.link;
+        document.querySelector("[data-preview-excerpt]").textContent = data.excerpt;
+    }
+</script>
+
 {% endblock %}
