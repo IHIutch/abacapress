@@ -2,9 +2,9 @@ import "typeface-barlow-condensed";
 import "typeface-karla";
 
 import feather from "feather-icons";
-import Swiper from "swiper";
-
 feather.replace();
+
+import Swiper from "swiper";
 var mySwiper = new Swiper(".swiper-container", {
   slidesPerView: 3,
   loop: true,

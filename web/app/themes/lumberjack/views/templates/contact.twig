@@ -52,7 +52,7 @@
                         </div>
                         <div class="relative pb-2/3 border-red border-2 mb-6">
                             <div class="absolute w-full h-full p-1">
-                                <div class="w-full h-full bg-gray-500">
+                                <div id="googleMap" class="w-full h-full bg-gray-500">
 
                                 </div>
                             </div>
@@ -73,4 +73,34 @@
         </div>
     </div>
 </main>
+
+<script>
+    function initMap() {
+        var location = {
+            lat: 42.919770,
+            lng: -78.898200
+        };
+        var map = new google.maps.Map(
+            document.getElementById('googleMap'), {
+                zoom: 15,
+                center: location,
+                disableDefaultUI: true,
+                styles: [{
+                    featureType: 'poi',
+                    elementType: 'all',
+                    stylers: [{
+                        visibility: 'off'
+                    }]
+                }]
+            });
+        var marker = new google.maps.Marker({
+            position: location,
+            map: map,
+        });
+    }
+</script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmpvIeO8vroUyF23MPOqWA9mMWORSoq98&callback=initMap">
+</script>
+
 {% endblock %}
