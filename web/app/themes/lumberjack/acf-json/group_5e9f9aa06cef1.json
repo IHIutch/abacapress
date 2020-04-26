@@ -1,6 +1,6 @@
 {
     "key": "group_5e9f9aa06cef1",
-    "title": "General Post",
+    "title": "General Page",
     "fields": [
         {
             "key": "field_5e9f9aa6b67b7",
@@ -146,5 +146,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1587917493
+    "modified": 1587919368
 }
