@@ -4,6 +4,7 @@ use App\Http\Lumberjack;
 use App\Functions\EnqueueAssets;
 use App\Functions\HideCommentsInAdminSidebar;
 use App\Functions\AddAcfOptionsPage;
+use App\Functions\EditorMetaBoxUpdates;
 
 // Create the Application Container
 $app = require_once('bootstrap/app.php');
@@ -17,6 +18,8 @@ EnqueueAssets::enqueueAssets();
 HideCommentsInAdminSidebar::hideCommentsInAdminSidebar();
 AddAcfOptionsPage::addAcfOptionsPage();
 AddAcfOptionsPage::accessAcfOptionsGlobally();
+EditorMetaBoxUpdates::yoastToEditorBottom();
+EditorMetaBoxUpdates::hideUnusedMetaBoxes();
 
 // Import our routes file
 require_once('routes.php');
