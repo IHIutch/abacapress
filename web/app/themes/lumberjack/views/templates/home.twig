@@ -16,8 +16,13 @@
 		</div>
 		<div class="w-2/3">
 			<div class="flex -mx-4">
-				{% for offer in offerings.offering %}
+				{% for offer in offerings %}
 				<div class="w-1/2 px-4">
+					{% if offer.image %}
+					<div>
+						<img src="{{offer.image.url}}" {% if offer.image.alt %} alt="{{offer.image.alt}}" {% endif %}>
+					</div>
+					{% endif %}
 					<div class="mb-2">
 						<span class="text-4xl font-gotu">{{offer.title}}</span>
 					</div>
@@ -30,7 +35,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="flex -mx-4">
+	<div class="flex -mx-4 items-center">
 		<div class="w-1/2 px-4">
 			<h2 class="text-xl uppercase text-red font-semibold tracking-widest font-barlow-condensed">
 				{{featured.subtitle}}
@@ -48,7 +53,8 @@
 			</a>
 		</div>
 		<div class="w-1/2 px-4">
-			img
+			<img class="w-full" src="{{featured.image.url}}" {% if featured.image.alt %} alt="{{featured.image.alt}}"
+				{% endif %}>
 		</div>
 	</div>
 </main>

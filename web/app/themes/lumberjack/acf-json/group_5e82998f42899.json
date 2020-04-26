@@ -80,7 +80,7 @@
             "key": "field_5e8299a4b54a9",
             "label": "Offerings",
             "name": "offerings",
-            "type": "group",
+            "type": "repeater",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -89,90 +89,73 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "block",
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "row",
+            "button_label": "Add Offering",
             "sub_fields": [
                 {
-                    "key": "field_5e8299b8b54aa",
-                    "label": "Offering",
-                    "name": "offering",
-                    "type": "repeater",
+                    "key": "field_5ea5bb1220614",
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
-                    "collapsed": "",
-                    "min": 0,
-                    "max": 0,
-                    "layout": "block",
-                    "button_label": "",
-                    "sub_fields": [
-                        {
-                            "key": "field_5e8299cdb54ab",
-                            "label": "Image",
-                            "name": "image",
-                            "type": "image",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "",
-                            "preview_size": "medium",
-                            "library": "",
-                            "min_width": "",
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": ""
-                        },
-                        {
-                            "key": "field_5e8299e1b54ac",
-                            "label": "Title",
-                            "name": "title",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_5e98f8c7235d1",
-                            "label": "Description",
-                            "name": "description",
-                            "type": "textarea",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "maxlength": "",
-                            "rows": 4,
-                            "new_lines": "wpautop"
-                        }
-                    ]
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_5ea5bb1d20615",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5ea5bb2220616",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": 4,
+                    "new_lines": "br"
                 }
             ]
         },
@@ -333,9 +316,9 @@
     "location": [
         [
             {
-                "param": "post_template",
+                "param": "page_template",
                 "operator": "==",
-                "value": "page-templates\/HomePage.php"
+                "value": "page-templates\/home.php"
             }
         ]
     ],
@@ -349,5 +332,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1587084106
+    "modified": 1587919798
 }
