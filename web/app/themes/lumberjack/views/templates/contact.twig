@@ -13,7 +13,9 @@
             </div>
             <div class="flex -mx-4">
                 <div class="px-4 w-8/12">
-                    Form
+                    {% filter shortcodes %}
+                    [ninja_form id=1]
+                    {% endfilter %}
                 </div>
                 <div class="px-4 ml-auto w-4/12">
                     <div>

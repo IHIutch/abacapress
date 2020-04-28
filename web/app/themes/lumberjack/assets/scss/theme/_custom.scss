@@ -1,5 +1,5 @@
 [v-cloak] {
-  display: none;
+  @apply .hidden;
 }
 
 .transition-fast {
@@ -8,4 +8,57 @@
 
 .outline-none {
   outline: 0 !important;
+}
+
+// Ninja Forms
+
+.nf-form-fields-required,
+.ninja-forms-req-symbol {
+  @apply .hidden;
+}
+
+.field-wrap {
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    @apply .h-16;
+    @apply .bg-transparent;
+    @apply .p-2;
+    @apply .border-b-2 #{!important};
+    @apply .border-red;
+    @apply .resize-none;
+  }
+
+  label {
+    @apply .text-xl;
+    @apply .text-red;
+    @apply .uppercase;
+    @apply .font-semibold #{!important};
+    @apply .font-barlow-condensed;
+    @apply .tracking-widest;
+  }
+
+  &.submit-wrap {
+    @apply .border-0 #{!important};
+
+    input {
+      @apply .text-xl;
+      @apply .text-red;
+      @apply .uppercase;
+      @apply .font-semibold #{!important};
+      @apply .font-barlow-condensed;
+      @apply .tracking-widest;
+      @apply .py-3;
+      @apply .px-16;
+      @apply .border-2;
+      @apply .border-red;
+      @apply .bg-transparent;
+      @apply .transition-fast;
+      &:hover {
+        @apply .cursor-pointer;
+        @apply .bg-red;
+        @apply .text-tan;
+      }
+    }
+  }
 }
