@@ -1,62 +1,35 @@
 [v-cloak] {
-  @apply .hidden;
+  @apply hidden;
 }
 
 .transition-fast {
   transition: all 0.2s ease !important;
 }
 
-.outline-none {
-  outline: 0 !important;
-}
-
 /*! purgecss start ignore */
 .nf-form-fields-required,
 .ninja-forms-req-symbol {
-  @apply .hidden;
+  @apply hidden;
 }
 
 .field-wrap {
   input[type="text"],
   input[type="email"],
   textarea {
-    @apply .h-16;
-    @apply .bg-transparent;
-    @apply .p-2;
-    @apply .border-b-2 #{!important};
-    @apply .border-red;
-    @apply .resize-none;
+    @apply h-16 bg-transparent p-2 border-b-2 border-red resize-none #{!important};
   }
 
   label {
-    @apply .text-xl;
-    @apply .text-red;
-    @apply .uppercase;
-    @apply .font-semibold #{!important};
-    @apply .font-barlow-condensed;
-    @apply .tracking-widest;
+    @apply text-xl text-red uppercase font-semibold font-barlow-condensed tracking-widest #{!important};
   }
 
   &.submit-wrap {
-    @apply .border-0 #{!important};
+    @apply border-0 #{!important};
 
     input {
-      @apply .text-xl;
-      @apply .text-red;
-      @apply .uppercase;
-      @apply .font-semibold #{!important};
-      @apply .font-barlow-condensed;
-      @apply .tracking-widest;
-      @apply .py-3;
-      @apply .px-16;
-      @apply .border-2;
-      @apply .border-red;
-      @apply .bg-transparent;
-      @apply .transition-fast;
+      @apply text-xl text-red uppercase font-semibold font-barlow-condensed tracking-widest py-3 px-16 border-2 border-red bg-transparent transition-fast #{!important};
       &:hover {
-        @apply .cursor-pointer;
-        @apply .bg-red;
-        @apply .text-tan;
+        @apply cursor-pointer bg-red text-tan;
       }
     }
   }
