@@ -47,12 +47,14 @@
         {% endverbatim %}
     </div>
 </main>
+{% endblock %}
 
 {% set formattedProjects = [] %}
 {% for project in projects %}
 {% set formattedProjects = formattedProjects|merge([{ post_title: project.post_title, post_date: project.post_date | date("F d, Y"), excerpt: project.custom.content_0_text_area, link: project.link, thumbnail: project.thumbnail.src }]) %}
 {% endfor %}
 
+{% block javascript %}
 <script>
     var app = new Vue({
         el: "#app",
@@ -89,5 +91,4 @@
         opacity: 0;
     }
 </style>
-
 {% endblock %}

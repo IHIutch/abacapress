@@ -18,7 +18,7 @@ after_success:
 - rsync -avz --delete-after --exclude node_modules web/app/mu-plugins ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_HOST}/web/app
 - rsync -avz --delete-after --exclude node_modules web/app/plugins ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_HOST}/web/app
 - rsync -avz --delete-after --exclude node_modules web/app/themes ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_HOST}/web/app
-- rsync -avz --delete-after --exclude node_modules web/wp ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_HOST}/web
+- rsync -avz --delete-after web/wp ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_HOST}/web
 
 notifications:
   email: false
