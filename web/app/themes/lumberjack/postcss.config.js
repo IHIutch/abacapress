@@ -2,9 +2,9 @@
 const purgecss = require("@fullhuman/postcss-purgecss")({
   content: ["./**/*.twig"],
   whitelist: [
-    ".field-wrap",
-    ".nf-form-fields-required",
-    ".ninja-forms-req-symbol",
+    "field-wrap",
+    "nf-form-fields-required",
+    "ninja-forms-req-symbol",
   ],
   defaultExtractor: (content) => content.match(/[A-z0-9-:\\/]+/g) || [],
 });
