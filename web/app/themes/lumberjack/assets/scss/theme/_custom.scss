@@ -11,7 +11,7 @@
 }
 
 // Ninja Forms
-
+/* purgecss start ignore */
 .nf-form-fields-required,
 .ninja-forms-req-symbol {
   @apply .hidden;
@@ -62,3 +62,4 @@
     }
   }
 }
+/* purgecss end ignore */

@@ -2,74 +2,72 @@
 
 {% block content %}
 <main class="container mx-auto px-4" role="main">
-    <div class="flex -mx-4 flex-wrap">
+    <div class="flex -mx-4 flex-wrap mb-8">
         <div class="px-4 w-10/12 mx-auto">
-            <div class="flex -mx-4">
-                <div class="px-4 w-full mb-8">
-                    <h1 class="text-5xl leading-tight font-gotu">
-                        Let’s Get in Touch
-                    </h1>
-                </div>
+            <h1 class="text-5xl leading-tight font-gotu">
+                Let’s Get in Touch
+            </h1>
+        </div>
+    </div>
+    <div class="flex -mx-4 flex-wrap">
+        <div class="px-4 w-5/12 mx-auto">
+            <div>
+                {% filter shortcodes %}
+                [ninja_form id=1]
+                {% endfilter %}
             </div>
-            <div class="flex -mx-4">
-                <div class="px-4 w-8/12">
-                    {% filter shortcodes %}
-                    [ninja_form id=1]
-                    {% endfilter %}
+        </div>
+        <div class="px-4 w-4/12 ml-auto">
+            <div>
+                <div class="mb-8">
+                    <div class="flex mb-2">
+                        <span class="uppercase font-barlow-condensed font-semibold tracking-widest text-red">
+                            Email
+                        </span>
+                    </div>
+                    <span>{{options.email}}</span>
                 </div>
-                <div class="px-4 ml-auto w-4/12">
-                    <div>
-                        <div class="mb-8">
-                            <div class="flex mb-2">
-                                <span class="uppercase font-barlow-condensed font-semibold tracking-widest text-red">
-                                    Email
-                                </span>
-                            </div>
-                            <span>{{options.email}}</span>
-                        </div>
-                        <div class="mb-8">
-                            <div class="flex mb-2">
-                                <span class="uppercase font-barlow-condensed font-semibold tracking-widest text-red">
-                                    Phone
-                                </span>
-                            </div>
-                            <span>{{options.phone_number}}</span>
-                        </div>
-                        <div class="mb-14">
-                            <div class="flex mb-2">
-                                <span class="uppercase font-barlow-condensed font-semibold tracking-widest text-red">
-                                    Find Us Online
-                                </span>
-                            </div>
-                            <div class="flex">
-                                <a href="{{options.facebook_link}}" class="flex align-center">
-                                    <i data-feather="facebook"></i>
-                                    <span class="ml-3">Facebook</span>
-                                </a>
-                                <a href="{{options.instagram_link}}" class="flex align-center ml-14">
-                                    <i data-feather="instagram"></i>
-                                    <span class="ml-3">Instagram</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="relative pb-2/3 border-red border-2 mb-6">
-                            <div class="absolute w-full h-full p-1">
-                                <div id="googleMap" class="w-full h-full bg-gray-500">
+                <div class="mb-8">
+                    <div class="flex mb-2">
+                        <span class="uppercase font-barlow-condensed font-semibold tracking-widest text-red">
+                            Phone
+                        </span>
+                    </div>
+                    <span>{{options.phone_number}}</span>
+                </div>
+                <div class="mb-14">
+                    <div class="flex mb-2">
+                        <span class="uppercase font-barlow-condensed font-semibold tracking-widest text-red">
+                            Find Us Online
+                        </span>
+                    </div>
+                    <div class="flex">
+                        <a href="{{options.facebook_link}}" class="flex align-center">
+                            <i data-feather="facebook"></i>
+                            <span class="ml-3">Facebook</span>
+                        </a>
+                        <a href="{{options.instagram_link}}" class="flex align-center ml-14">
+                            <i data-feather="instagram"></i>
+                            <span class="ml-3">Instagram</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="relative pb-2/3 border-red border-2 mb-6">
+                    <div class="absolute w-full h-full p-1">
+                        <div id="googleMap" class="w-full h-full bg-gray-500">
 
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex mb-2">
-                                <span class="uppercase font-barlow-condensed font-semibold tracking-widest text-red">
-                                    Address
-                                </span>
-                            </div>
-                            <p>
-                                {{options.address}}
-                            </p>
                         </div>
                     </div>
+                </div>
+                <div>
+                    <div class="flex mb-2">
+                        <span class="uppercase font-barlow-condensed font-semibold tracking-widest text-red">
+                            Address
+                        </span>
+                    </div>
+                    <p>
+                        {{options.address}}
+                    </p>
                 </div>
             </div>
         </div>
