@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
+    "alpinejs": "^2.3.1",
     "core-js": "^3.6.5",
     "feather-icons": "^4.28.0",
     "swiper": "^5.3.8",
