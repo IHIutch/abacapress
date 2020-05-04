@@ -2,6 +2,9 @@ module.exports = {
   important: true,
   theme: {
     extend: {
+      inset: {
+        "40": "10rem",
+      },
       spacing: {
         "9/16": "56.25%",
         "2/3": "66.666667%",

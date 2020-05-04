@@ -1,94 +1,67 @@
 {% extends "base.twig" %}
 
 {% block content %}
-<main id="app" class="container mx-auto px-4" role="main" v-cloak>
-    <div class="flex -mx-4">
-        {% verbatim %}
+<main id="app" class="container mx-auto px-4" role="main">
+    <div class="flex -mx-4" x-data="projects()">
         <div class="mb-4 w-3/12 px-4">
-            <div v-for="(project, idx) in projects">
-                <button type="button" class="block w-full text-left mb-8 outline-none transition-fast"
-                    :class="preview.id == idx ? 'border-red border-l-4 -ml-4 pl-3' : 'border-l-0 ml-0 pl-0'"
-                    @click="assignToProjectPreview(idx)">
-                    <div class="">
-                        <span class="text-sm uppercase font-barlow-condensed text-red tracking-widest font-semibold">
-                            {{project.post_date}}
-                        </span>
-                        <div>
-                            <div>
-                                <span class="text-2xl font-gotu">{{project.post_title}}</span>
-                            </div>
-                            <p>
-                            </p>
-                        </div>
+            {% for project in projects %}
+            <button type="button" class="block w-full text-left mb-8 outline-none transition-fast"
+                :class="previewIdx == {{loop.index0}} ? 'border-red border-l-4 -ml-4 pl-3' : 'border-l-0 ml-0 pl-0'"
+                @click="assignToProjectPreview({{loop.index0}})">
+                <span class="text-sm uppercase font-barlow-condensed text-red tracking-widest font-semibold">
+                    {{project.post_date | date("F d, Y")}}
+                </span>
+                <div>
+                    <div>
+                        <span class="text-2xl font-gotu">{{project.title}}</span>
                     </div>
-                </button>
-            </div>
+                    <p>
+                        {{project.custom.content_0_text_area}}
+                    </p>
+                </div>
+            </button>
+            {% endfor %}
         </div>
-        <div class="px-4 w-9/12 relative">
-            <div class="relative pb-9/16 mb-2">
-                <transition name="fade">
-                    <img :key="preview.id" :src="preview.thumbnail"
-                        class="transition-fast absolute w-full h-full object-cover" />
-                </transition>
-            </div>
-            <div class="flex justify-between">
-                <a class="text-lg uppercase text-red font-semibold tracking-widest font-barlow-condensed"
-                    :href="preview.link">
-                    Check out this project
-                    <span class="ml-2">&rarr;</span>
-                </a>
-                <div class="w-2/3 relative">
-                    <transition name="fade">
-                        <span :key="preview.id" class="transition-fast absolute text-sm">{{preview.excerpt}}</span>
-                    </transition>
+        <div class="px-4 w-9/12">
+            <div class="sticky top-40">
+                <div class="relative pb-2/3 w-full h-full">
+                    {% for project in projects %}
+                    <template x-if="previewIdx == {{loop.index0}}">
+                        <div class="absolute top-0 left-0 transition-fast" x-transition:enter-start="opacity-0"
+                            x-transition:enter-end="opacity-100" x-transition:leave-start="opacity-100"
+                            x-transition:leave-end="opacity-0">
+                            <div class="relative pb-9/16 mb-2">
+                                <img src="{{project.thumbnail}}" class="absolute w-full h-full object-cover" />
+                            </div>
+                            <div class="flex justify-between">
+                                <a class="text-lg uppercase text-red font-semibold tracking-widest font-barlow-condensed opac"
+                                    href="{{project.link}}">
+                                    Check out this project
+                                    <span class="ml-2">&rarr;</span>
+                                </a>
+                                <div class="w-2/3">
+                                    <span class="text-sm">{{project.custom.content_0_text_area}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                    {% endfor %}
                 </div>
             </div>
         </div>
-        {% endverbatim %}
     </div>
 </main>
 {% endblock %}
 
-{% set formattedProjects = [] %}
-{% for project in projects %}
-{% set formattedProjects = formattedProjects|merge([{ post_title: project.post_title, post_date: project.post_date | date("F d, Y"), excerpt: project.custom.content_0_text_area, link: project.link, thumbnail: project.thumbnail.src }]) %}
-{% endfor %}
-
 {% block javascript %}
 <script>
-    var app = new Vue({
-        el: "#app",
-        data: function () {
-            return {
-                projects: {{formattedProjects | json_encode()}},
-                preview: {
-                    id: "",
-                    link: "",
-                    thumbnail: "",
-                    excerpt: ""
-                }
-            };
-        },
-        methods: {
-            assignToProjectPreview: function (idx) {
-                this.preview = {
-                    id: idx,
-                    link: this.projects[idx].link,
-                    thumbnail: this.projects[idx].thumbnail,
-                    excerpt: this.projects[idx].excerpt
-                }
+    window.projects = function () {
+        return {
+            previewIdx: 0,
+            assignToProjectPreview(idx) {
+                this.previewIdx = idx;
             }
-        },
-        created: function () {
-            this.assignToProjectPreview(0)
         }
-    });
-</script>
-
-<style>
-    .fade-enter,
-    .fade-leave-to {
-        opacity: 0;
     }
-</style>
+</script>
 {% endblock %}
