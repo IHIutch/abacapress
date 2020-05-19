@@ -1,5 +1,8 @@
 module.exports = {
   important: true,
+  variants: {
+    margin: ["hover"],
+  },
   theme: {
     extend: {
       inset: {
