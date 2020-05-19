@@ -1,18 +1,20 @@
 <footer role="footer" class="container mx-auto mb-20 mt-64 px-4">
-    <div class="flex -m-4">
-        <div class="px-4 flex-1">
-            <div class="flex flex-col justify-between h-full">
-                <span class="text-3xl font-gotu">{{site.name}}</span>
-                <span class="font-sm">
+    <div class="flex -m-4 flex-wrap">
+        <div class="lg:flex-1 px-4">
+            <div class="flex flex-col justify-between lg:h-full">
+                <div class="mb-8 md:mb-4">
+                    <span class="text-3xl font-gotu">{{site.name}}</span>
+                </div>
+                <span class="hidden lg:block font-sm">
                     All Rights Reserved
                     <span class="font-sans">&copy;</span>
                     {{"now"|date("Y")}}
                 </span>
             </div>
         </div>
-        <div class="flex px-4">
-            <div class="mr-20">
-                <div class="mb-8">
+        <div class="flex px-4 flex-wrap mb-12 lg:mb-0">
+            <div class="flex w-full mb-12 flex-wrap lg:block lg:w-auto lg:mb-0 lg:mr-20">
+                <div class="w-1/2 lg:mb-8 lg:w-full">
                     <div class="flex mb-2">
                         <span class="uppercase font-barlow-condensed font-semibold tracking-widest text-red">
                             Email
@@ -20,7 +22,7 @@
                     </div>
                     <span>{{options.email}}</span>
                 </div>
-                <div>
+                <div class="w-1/2 lg:w-full">
                     <div class="flex mb-2">
                         <span class="uppercase font-barlow-condensed font-semibold tracking-widest text-red">
                             Phone
@@ -29,7 +31,7 @@
                     <span>{{options.phone_number}}</span>
                 </div>
             </div>
-            <div class="mr-20">
+            <div class="w-1/2 mb-8 lg:w-auto lg:mb-0 lg:mr-20">
                 <div class="flex mb-2">
                     <span class="uppercase font-barlow-condensed font-semibold tracking-widest text-red">
                         Address
@@ -39,14 +41,14 @@
                     {{options.address}}
                 </p>
             </div>
-            <div>
+            <div class="w-1/2 lg:w-auto">
                 <div class="flex mb-2">
                     <span class="uppercase font-barlow-condensed font-semibold tracking-widest text-red">
                         Find Us Online
                     </span>
                 </div>
-                <div>
-                    <a href="{{options.facebook_link}}" class="flex align-center mb-6">
+                <div class="block md:flex lg:block">
+                    <a href="{{options.facebook_link}}" class="flex align-center mb-6 md:mr-20 lg:mr-0">
                         <i data-feather="facebook"></i>
                         <span class="ml-3">Facebook</span>
                     </a>
@@ -56,6 +58,13 @@
                     </a>
                 </div>
             </div>
+        </div>
+        <div class="px-4 w-full">
+            <span class="lg:hidden font-sm">
+                All Rights Reserved
+                <span class="font-sans">&copy;</span>
+                {{"now"|date("Y")}}
+            </span>
         </div>
     </div>
 </footer>

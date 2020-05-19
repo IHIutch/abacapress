@@ -2,7 +2,7 @@
     <div class="container mx-auto flex px-4">
         <ul class="flex ml-auto">
             {% for item in menu.items %}
-            <li class="ml-20">
+            <li class="ml-6 md:ml-20">
                 <a class="font-barlow-condensed text-red uppercase tracking-widest text-2xl {{ item.current ? 'font-semibold'}}"
                     href="{{item.link}}">{{item.title}}</a>
             </li>
