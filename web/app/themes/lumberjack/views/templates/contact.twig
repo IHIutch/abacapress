@@ -3,23 +3,23 @@
 {% block content %}
 <main class="container mx-auto px-4" role="main">
     <div class="flex -mx-4 flex-wrap mb-8">
-        <div class="px-4 w-10/12 mx-auto">
+        <div class="px-4 w-full lg:w-10/12 mx-auto">
             <h1 class="text-5xl leading-tight font-gotu">
                 Let’s Get in Touch
             </h1>
         </div>
     </div>
     <div class="flex -mx-4 flex-wrap">
-        <div class="px-4 w-5/12 mx-auto">
+        <div class="px-4 w-full order-2 md:order-none md:w-1/2 mr-auto lg:mx-auto lg:w-5/12">
             <div>
                 {% filter shortcodes %}
                 [ninja_form id=1]
                 {% endfilter %}
             </div>
         </div>
-        <div class="px-4 w-4/12 ml-auto">
-            <div>
-                <div class="mb-8">
+        <div class="px-4 w-full order-1 mb-56 md:mb-0 md:order-none md:ml-auto md:w-5/12 lg:w-4/12">
+            <div class="flex flex-wrap">
+                <div class="w-1/2 md:w-full mb-8">
                     <div class="flex mb-2">
                         <span class="uppercase font-barlow-condensed font-semibold tracking-widest text-red">
                             Email
@@ -27,7 +27,7 @@
                     </div>
                     <span>{{options.email}}</span>
                 </div>
-                <div class="mb-8">
+                <div class="w-1/2 md:w-full mb-8">
                     <div class="flex mb-2">
                         <span class="uppercase font-barlow-condensed font-semibold tracking-widest text-red">
                             Phone
@@ -35,39 +35,41 @@
                     </div>
                     <span>{{options.phone_number}}</span>
                 </div>
-                <div class="mb-14">
+                <div class="w-full mb-14">
                     <div class="flex mb-2">
                         <span class="uppercase font-barlow-condensed font-semibold tracking-widest text-red">
                             Find Us Online
                         </span>
                     </div>
-                    <div class="flex">
-                        <a href="{{options.facebook_link}}" class="flex align-center">
+                    <div class="flex md:block lg:flex">
+                        <a href="{{options.facebook_link}}" class="flex align-center mb-6">
                             <i data-feather="facebook"></i>
                             <span class="ml-3">Facebook</span>
                         </a>
-                        <a href="{{options.instagram_link}}" class="flex align-center ml-14">
+                        <a href="{{options.instagram_link}}" class="flex align-center ml-14 md:ml-0 lg:ml-14">
                             <i data-feather="instagram"></i>
                             <span class="ml-3">Instagram</span>
                         </a>
                     </div>
                 </div>
-                <div class="relative pb-2/3 border-red border-2 mb-6">
-                    <div class="absolute w-full h-full p-1">
-                        <div id="googleMap" class="w-full h-full bg-gray-500">
+                <div class="w-full">
+                    <div class="relative pb-2/3 border-red border-2 mb-6">
+                        <div class="absolute w-full h-full p-1">
+                            <div id="googleMap" class="w-full h-full bg-gray-500">
 
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div>
-                    <div class="flex mb-2">
-                        <span class="uppercase font-barlow-condensed font-semibold tracking-widest text-red">
-                            Address
-                        </span>
+                    <div>
+                        <div class="flex mb-2">
+                            <span class="uppercase font-barlow-condensed font-semibold tracking-widest text-red">
+                                Address
+                            </span>
+                        </div>
+                        <p>
+                            {{options.address}}
+                        </p>
                     </div>
-                    <p>
-                        {{options.address}}
-                    </p>
                 </div>
             </div>
         </div>
