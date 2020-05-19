@@ -1,7 +1,7 @@
 module.exports = {
   important: true,
   variants: {
-    margin: ["hover"],
+    margin: ["responsive", "hover"],
   },
   theme: {
     extend: {
