@@ -6,7 +6,7 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 const config = {
   //Your path to dist accessed from a browser
-  distPath: __dirname + "/dist/",
+  distPath: "../../dist/",
   //Your local development url for browsersync
   localUrl: "http://abacapress:8888/",
   //Open new window each time 'npm run serve' command is executed
@@ -82,11 +82,11 @@ module.exports = {
         ],
       },
       {
-        test: /\.(jpg|png|svg)(\?.*$|$)/,
+        test: /\.(jpg|png|svg|woff|woff2|ttf|otf|)(\?.*$|$)/,
         loader: "file-loader",
       },
       {
-        test: /\.(woff|woff2|ttf|otf|css)$/,
+        test: /\.(css)$/,
         use: {
           loader: "url-loader",
         },
