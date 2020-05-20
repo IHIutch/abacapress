@@ -82,8 +82,20 @@ module.exports = {
         ],
       },
       {
-        test: /\.(jpg|png|svg|woff|woff2|ttf|otf|)(\?.*$|$)/,
+        test: /\.(jpg|png|svg)(\?.*$|$)/,
         loader: "file-loader",
+        options: {
+          outputPath: "images",
+        },
+      },
+      {
+        test: /\.(woff|woff2|ttf|otf)(\?.*$|$)/,
+        use: {
+          loader: "file-loader",
+          options: {
+            outputPath: "fonts",
+          },
+        },
       },
       {
         test: /\.(css)$/,
