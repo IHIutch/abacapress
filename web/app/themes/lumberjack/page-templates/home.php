@@ -9,7 +9,6 @@ use App\Http\Controllers\Controller;
 use App\PostTypes\Project;
 use Rareloop\Lumberjack\Http\Responses\TimberResponse;
 use Rareloop\Lumberjack\Page;
-use Rareloop\Lumberjack\QueryBuilder;
 use Timber\Timber;
 use Timber\Site;
 
@@ -21,9 +20,7 @@ class HomeController extends Controller
         $page = new Page();
         $context = Timber::get_context();
 
-        $projects = (new QueryBuilder)->wherePostType([
-            Project::getPostType(),
-        ])
+        $projects = Project::builder()
             ->orderBy('date', 'asc')
             ->limit(6)
             ->get();

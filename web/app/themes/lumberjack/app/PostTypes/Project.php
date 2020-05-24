@@ -39,4 +39,17 @@ class Project extends Post
             'supports' => ['title', 'thumbnail', 'excerpt']
         ];
     }
+
+    public function custom_excerpt()
+    {
+        $excerpt = '';
+        $sections = $this->meta('content');
+        foreach ($sections as $s) {
+            if ($s['acf_fc_layout'] == 'text_area' && !empty($s['text_area'])) {
+                $excerpt = $s['text_area'];
+                break;
+            }
+        };
+        return $excerpt;
+    }
 }

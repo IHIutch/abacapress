@@ -16,7 +16,7 @@
                         <span class="text-2xl font-gotu">{{project.title}}</span>
                     </div>
                     <p>
-                        {{project.custom.content_0_text_area}}
+                        {{project.custom_excerpt | excerpt(24)}}
                     </p>
                 </div>
             </button>
@@ -40,7 +40,7 @@
                                     <span>&rarr;</span>
                                 </a>
                                 <div class="w-2/3">
-                                    <span class="text-sm">{{project.custom.content_0_text_area}}</span>
+                                    <span class="text-sm">{{project.custom_excerpt | excerpt(24)}}</span>
                                 </div>
                             </div>
                         </div>
