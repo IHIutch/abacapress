@@ -4,14 +4,14 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "524c68940a6c1fb33a533635c710d6bb",
+    "content-hash": "bab321348fc4fcd8f8499a5e2c51e1d7",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
-            "version": "5.8.9",
+            "version": "5.8.11",
             "dist": {
                 "type": "zip",
-                "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k={%ACF_PRO_KEY}&t=5.8.9",
+                "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k={%ACF_PRO_KEY}&t=5.8.11",
                 "reference": null,
                 "shasum": null
             },
@@ -748,16 +748,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.25.3",
+            "version": "1.25.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "fa82921994db851a8becaf3787a9e73c5976b6f1"
+                "reference": "3022efff205e2448b560c833c6fbbf91c3139168"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/fa82921994db851a8becaf3787a9e73c5976b6f1",
-                "reference": "fa82921994db851a8becaf3787a9e73c5976b6f1",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/3022efff205e2448b560c833c6fbbf91c3139168",
+                "reference": "3022efff205e2448b560c833c6fbbf91c3139168",
                 "shasum": ""
             },
             "require": {
@@ -771,11 +771,10 @@
                 "aws/aws-sdk-php": "^2.4.9 || ^3.0",
                 "doctrine/couchdb": "~1.0@dev",
                 "graylog2/gelf-php": "~1.0",
-                "jakub-onderka/php-parallel-lint": "0.9",
                 "php-amqplib/php-amqplib": "~2.4",
                 "php-console/php-console": "^3.1.3",
+                "php-parallel-lint/php-parallel-lint": "^1.0",
                 "phpunit/phpunit": "~4.5",
-                "phpunit/phpunit-mock-objects": "2.3.0",
                 "ruflin/elastica": ">=0.90 <3.0",
                 "sentry/sentry": "^0.13",
                 "swiftmailer/swiftmailer": "^5.3|^6.0"
@@ -822,7 +821,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2019-12-20T14:15:16+00:00"
+            "time": "2020-05-22T07:31:27+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -2406,16 +2405,16 @@
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v4.1.5",
+            "version": "v4.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "539bb6927c101a5605d31d11a2d17185a2ce2bf1"
+                "reference": "0b32505d67c1abbfa829283c86bfc0642a661bf6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/539bb6927c101a5605d31d11a2d17185a2ce2bf1",
-                "reference": "539bb6927c101a5605d31d11a2d17185a2ce2bf1",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/0b32505d67c1abbfa829283c86bfc0642a661bf6",
+                "reference": "0b32505d67c1abbfa829283c86bfc0642a661bf6",
                 "shasum": ""
             },
             "require": {
@@ -2466,7 +2465,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2020-05-02T14:08:57+00:00"
+            "time": "2020-05-23T09:43:32+00:00"
         },
         {
             "name": "wpackagist-plugin/acf-content-analysis-for-yoast-seo",
@@ -2530,15 +2529,15 @@
         },
         {
             "name": "wpackagist-plugin/ninja-forms",
-            "version": "3.4.24.2",
+            "version": "3.4.24.3",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/ninja-forms/",
-                "reference": "tags/3.4.24.2"
+                "reference": "tags/3.4.24.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/ninja-forms.3.4.24.2.zip",
+                "url": "https://downloads.wordpress.org/plugin/ninja-forms.3.4.24.3.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -2659,12 +2658,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "885e8b1e0bc2096989fd20938342e407e8045186"
+                "reference": "e38de1df609b39d97144514d28b0804ad4daaddb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/885e8b1e0bc2096989fd20938342e407e8045186",
-                "reference": "885e8b1e0bc2096989fd20938342e407e8045186",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/e38de1df609b39d97144514d28b0804ad4daaddb",
+                "reference": "e38de1df609b39d97144514d28b0804ad4daaddb",
                 "shasum": ""
             },
             "conflict": {
@@ -2705,10 +2704,10 @@
                 "doctrine/mongodb-odm": ">=1,<1.0.2",
                 "doctrine/mongodb-odm-bundle": ">=2,<3.0.1",
                 "doctrine/orm": ">=2,<2.4.8|>=2.5,<2.5.1",
-                "dolibarr/dolibarr": "<=10.0.6",
+                "dolibarr/dolibarr": "<11.0.4",
                 "dompdf/dompdf": ">=0.6,<0.6.2",
-                "drupal/core": ">=7,<7.69|>=8,<8.7.12|>=8.8,<8.8.4",
-                "drupal/drupal": ">=7,<7.69|>=8,<8.7.12|>=8.8,<8.8.4",
+                "drupal/core": ">=7,<7.70|>=8,<8.7.14|>=8.8,<8.8.6",
+                "drupal/drupal": ">=7,<7.70|>=8,<8.7.14|>=8.8,<8.8.6",
                 "endroid/qr-code-bundle": "<3.4.2",
                 "enshrined/svg-sanitize": "<0.13.1",
                 "erusev/parsedown": "<1.7.2",
@@ -2921,7 +2920,7 @@
                 }
             ],
             "description": "Prevents installation of composer packages with known security vulnerabilities: no API, simply require it",
-            "time": "2020-05-16T00:00:31+00:00"
+            "time": "2020-05-22T06:49:22+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
