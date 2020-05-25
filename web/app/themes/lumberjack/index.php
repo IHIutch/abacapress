@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The main template file
  * This is the most generic template file in a WordPress theme
@@ -10,17 +11,28 @@
 namespace App;
 
 use App\Http\Controllers\Controller;
+use App\Macros\CustomExcerpt;
 use Rareloop\Lumberjack\Http\Responses\TimberResponse;
 use Rareloop\Lumberjack\Post;
 use Timber\Timber;
+
+CustomExcerpt::getCustomExcerpt();
 
 class IndexController extends Controller
 {
     public function handle()
     {
         $context = Timber::get_context();
-        $context['posts'] = Post::all();
 
-        return new TimberResponse('templates/posts.twig', $context);
+        $posts = Post::builder()
+            ->orderBy('date', 'asc')
+            ->limit(6)
+            ->get();
+
+        $context = array_merge($context, [
+            'posts' => $posts
+        ]);
+
+        return new TimberResponse('templates/post-archive.twig', $context);
     }
 }

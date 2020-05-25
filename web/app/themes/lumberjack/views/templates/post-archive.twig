@@ -1,28 +1,35 @@
 {% extends "base.twig" %}
 
 {% block content %}
-    <main>
-        <h1>{{ title }}</h1>
-
-        <div class="typography">
-            {{ content|raw }}
+<main class="container mx-auto px-4" role="main">
+    <div class="flex -mx-4">
+        <div class="mb-4 w-4/12 px-4">
+            <span class="text-5xl lg:text-6xl leading-tight font-gotu">See all these beautiful projects.</span>
         </div>
-
-        {% if posts|length > 0 %}
-            <ul class="posts">
-                {% for post in posts %}
-                    <li class="posts__item">
-                        <article class="post">
-                            <h1><a href="{{ post.link }}">{{ post.title }}</a></h1>
-                            <div>
-                                {{ post.content|raw }}
-                            </div>
-                        </article>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>No results found.</p>
-        {% endif %}
-    </main>
+        {% for post in posts %}
+        <div class="mb-4 w-4/12 px-4">
+            {% if post.thumbnail %}
+            <div class="relative pb-9/16 mb-2">
+                <img class="absolute w-full h-full object-cover" src="{{post.thumbnail.src}}">
+            </div>
+            {% endif %}
+            <div>
+                <span class="text-sm uppercase font-barlow-condensed text-red tracking-widest font-semibold">
+                    {{post.post_date | date("F d, Y") }}
+                </span>
+            </div>
+            <div class="mb-2">
+                <span class="text-3xl font-gotu">{{post.title}}</span>
+            </div>
+            <div class="mb-6">
+                <p class="text-lg">{{post.custom_excerpt|excerpt(24)}}</p>
+            </div>
+            <a class="uppercase text-red font-semibold tracking-widest font-barlow-condensed" href="{{project.link}}">
+                <span class="mr-2 hover:mr-4 transition-fast">Keep Reading</span>
+                <span>&rarr;</span>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</main>
 {% endblock %}

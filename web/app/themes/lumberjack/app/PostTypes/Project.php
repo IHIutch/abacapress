@@ -35,21 +35,12 @@ class Project extends Post
             ],
             'menu_icon' => __('dashicons-format-image'),
             'public' => true,
-            'has_archive'   => true,
+            'has_archive' => 'projects',
+            'rewrite' => [
+                'with_front' => false,
+                'slug'       => 'product'
+            ],
             'supports' => ['title', 'thumbnail', 'excerpt']
         ];
-    }
-
-    public function custom_excerpt()
-    {
-        $excerpt = '';
-        $sections = $this->meta('content');
-        foreach ($sections as $s) {
-            if ($s['acf_fc_layout'] == 'text_area' && !empty($s['text_area'])) {
-                $excerpt = $s['text_area'];
-                break;
-            }
-        };
-        return $excerpt;
     }
 }
