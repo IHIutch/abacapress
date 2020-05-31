@@ -4,7 +4,14 @@
             {% for item in menu.items %}
             <li class="ml-6 md:ml-20">
                 <a class="font-barlow-condensed text-red uppercase tracking-widest text-2xl {{ item.current ? 'font-semibold'}}"
-                    href="{{item.link}}">{{item.title}}</a>
+                    href="
+                    {% if item.title == 'Blog' %}
+                        {{most_recent_blog.link}}
+                    {% else %}
+                        {{item.link}}
+                    {% endif %}">
+                    {{item.title}}
+                </a>
             </li>
             {% endfor %}
         </ul>
