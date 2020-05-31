@@ -1,8 +1,14 @@
 <?php
 
 use Rareloop\Lumberjack\Facades\Router;
-use Zend\Diactoros\Response\HtmlResponse;
+use Zend\Diactoros\Response\RedirectResponse;
+use Rareloop\Lumberjack\Post;
 
-// Router::get('hello-world', function () {
-//     return new HtmlResponse('<h1>Hello World!</h1>');
-// });
+Router::get('/most-recent', function () {
+    $posts = Post::builder()
+        ->orderBy('date', 'asc')
+        ->limit(1)
+        ->get();
+
+    return new RedirectResponse($posts[0]->link);
+});
