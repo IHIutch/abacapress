@@ -88,7 +88,7 @@
                             "key": "field_5e9f9c49576a3",
                             "label": "Text Area",
                             "name": "text_area",
-                            "type": "textarea",
+                            "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -98,10 +98,10 @@
                                 "id": ""
                             },
                             "default_value": "",
-                            "placeholder": "",
-                            "maxlength": "",
-                            "rows": "",
-                            "new_lines": "br"
+                            "tabs": "visual",
+                            "toolbar": "basic",
+                            "media_upload": 0,
+                            "delay": 0
                         }
                     ],
                     "min": "",
@@ -146,5 +146,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1587919368
+    "modified": 1590893891
 }
