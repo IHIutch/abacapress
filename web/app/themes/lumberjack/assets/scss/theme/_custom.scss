@@ -39,4 +39,10 @@ iframe {
   @apply w-full h-full;
 }
 
+.post {
+  a {
+    @apply text-red underline;
+  }
+}
+
 /*! purgecss end ignore */

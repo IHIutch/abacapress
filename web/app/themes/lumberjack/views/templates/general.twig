@@ -1,7 +1,7 @@
 {% extends "base.twig" %}
 
 {% block content %}
-<main class="container mx-auto px-4" role="main">
+<main class="container mx-auto px-4 post" role="main">
     {% for section in content %}
     <div class="flex -mx-4 mb-56 flex-wrap">
         {% if section.acf_fc_layout == 'single_column_image' %}
