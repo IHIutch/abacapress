@@ -1,7 +1,3 @@
-[v-cloak] {
-  @apply hidden;
-}
-
 .transition-fast {
   transition: all 0.2s ease !important;
 }
@@ -42,6 +38,9 @@ iframe {
 .post {
   a {
     @apply text-red underline;
+  }
+  p ~ p {
+    @apply mt-10;
   }
 }
 
