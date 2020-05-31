@@ -7,8 +7,16 @@
         {% if section.acf_fc_layout == 'single_column_image' %}
         <div class="w-full px-4 lg:w-8/12 mx-auto">
             <figure>
+                {% if section.imagevideo == "Image"  %}
                 <img class="w-full h-auto mb-4" src="{{section.image.url}}" {% if section.image.alt %}
                     alt="{{section.image.alt}}" {% endif %}>
+                {% else %}
+                <div class="relative pb-9/16 mb-2">
+                    <div class="absolute w-full h-full">
+                        {{section.video}}
+                    </div>
+                </div>
+                {% endif %}
                 {% if section.caption %}
                 <figcaption class="text-sm">
                     {{section.caption}}
