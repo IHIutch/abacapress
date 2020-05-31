@@ -38,9 +38,9 @@ class Project extends Post
             'has_archive' => 'projects',
             'rewrite' => [
                 'with_front' => false,
-                'slug'       => 'product'
+                'slug'       => 'project'
             ],
-            'supports' => ['title', 'thumbnail', 'excerpt']
+            'supports' => ['title', 'thumbnail']
         ];
     }
 }
