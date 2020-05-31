@@ -1,60 +1,121 @@
 {% extends "base.twig" %}
 
 {% block content %}
-<main class="container mx-auto px-4 post" role="main">
-    {% for section in content %}
-    <div class="flex -mx-4 mb-56 flex-wrap">
-        {% if section.acf_fc_layout == 'single_column_image' %}
-        <div class="w-full px-4 lg:w-8/12 mx-auto">
-            <figure>
-                {% if section.imagevideo == "Image"  %}
-                <img class="w-full h-auto mb-4" src="{{section.image.url}}" {% if section.image.alt %}
-                    alt="{{section.image.alt}}" {% endif %}>
-                {% else %}
-                <div class="relative pb-9/16 mb-2">
-                    <div class="absolute w-full h-full">
-                        {{section.video}}
+<main role="main">
+    <div class="container mx-auto px-4 post">
+        {% for section in content %}
+        <div class="flex -mx-4 mb-56 flex-wrap">
+            {% if section.acf_fc_layout == 'single_column_image' %}
+            <div class="w-full px-4 lg:w-8/12 mx-auto">
+                <figure>
+                    {% if section.imagevideo == "Image"  %}
+                    <img class="w-full h-auto mb-4" src="{{section.image.url}}" {% if section.image.alt %}
+                        alt="{{section.image.alt}}" {% endif %}>
+                    {% else %}
+                    <div class="relative pb-9/16 mb-2">
+                        <div class="absolute w-full h-full">
+                            {{section.video}}
+                        </div>
                     </div>
-                </div>
-                {% endif %}
-                {% if section.caption %}
-                <figcaption class="text-sm">
-                    {{section.caption}}
-                </figcaption>
-                {% endif %}
-            </figure>
+                    {% endif %}
+                    {% if section.caption %}
+                    <figcaption class="text-sm">
+                        {{section.caption}}
+                    </figcaption>
+                    {% endif %}
+                </figure>
+            </div>
+            {% endif %}
+            {% if section.acf_fc_layout == 'double_column_image' %}
+            <div class="w-full px-4 flex items-center mb-32 lg:mb-0 lg:w-6/12">
+                <figure>
+                    <img class="w-full h-auto mb-4" src="{{section.group_1.image.url}}"
+                        {% if section.group_1.image.alt %} alt="{{section.group_1.image.alt}}" {% endif %}>
+                    {% if section.group_1.caption %}
+                    <figcaption class="text-sm">
+                        {{section.group_1.caption}}
+                    </figcaption>
+                    {% endif %}
+                </figure>
+            </div>
+            <div class="w-full px-4 flex items-center lg:w-6/12">
+                <figure>
+                    <img class="w-full h-auto mb-4" src="{{section.group_2.image.url}}"
+                        {% if section.group_2.image.alt %} alt="{{section.group_2.image.alt}}" {% endif %}>
+                    {% if section.group_2.caption %}
+                    <figcaption class="text-sm">
+                        {{section.group_2.caption}}
+                    </figcaption>
+                    {% endif %}
+                </figure>
+            </div>
+            {% endif %}
+            {% if section.acf_fc_layout == 'text_area' %}
+            <div class="w-full px-4 mx-auto text-2xl lg:w-1/2">
+                {{section.text_area}}
+            </div>
+            {% endif %}
         </div>
-        {% endif %}
-        {% if section.acf_fc_layout == 'double_column_image' %}
-        <div class="w-full px-4 flex items-center mb-32 lg:mb-0 lg:w-6/12">
-            <figure>
-                <img class="w-full h-auto mb-4" src="{{section.group_1.image.url}}" {% if section.group_1.image.alt %}
-                    alt="{{section.group_1.image.alt}}" {% endif %}>
-                {% if section.group_1.caption %}
-                <figcaption class="text-sm">
-                    {{section.group_1.caption}}
-                </figcaption>
-                {% endif %}
-            </figure>
-        </div>
-        <div class="w-full px-4 flex items-center lg:w-6/12">
-            <figure>
-                <img class="w-full h-auto mb-4" src="{{section.group_2.image.url}}" {% if section.group_2.image.alt %}
-                    alt="{{section.group_2.image.alt}}" {% endif %}>
-                {% if section.group_2.caption %}
-                <figcaption class="text-sm">
-                    {{section.group_2.caption}}
-                </figcaption>
-                {% endif %}
-            </figure>
-        </div>
-        {% endif %}
-        {% if section.acf_fc_layout == 'text_area' %}
-        <div class="w-full px-4 mx-auto text-2xl lg:w-1/2">
-            {{section.text_area}}
-        </div>
-        {% endif %}
+        {% endfor %}
     </div>
-    {% endfor %}
+    <div class="px-4">
+        <div class="flex -mx-4 mb-56">
+            <div class="px-4 w-full swiper-container">
+                <div class="swiper-wrapper">
+                    {% for post in more_posts %}
+                    <div class="swiper-slide px-4">
+                        {% if post.thumbnail %}
+                        <div class="relative pb-9/16 mb-2">
+                            <img class="absolute w-full h-full object-cover" src="{{post.thumbnail.src}}">
+                        </div>
+                        {% endif %}
+                        <div>
+                            <span
+                                class="text-sm uppercase font-barlow-condensed text-red tracking-widest font-semibold">
+                                {{post.post_date | date("F d, Y") }}
+                            </span>
+                        </div>
+                        <div class="mb-2">
+                            <span class="text-3xl font-gotu">{{post.title}}</span>
+                        </div>
+                        <div class="mb-6">
+                            <p class="text-lg">{{post.custom_excerpt | excerpt(24)}}</p>
+                        </div>
+                        <a class="uppercase text-red font-semibold tracking-widest font-barlow-condensed"
+                            href="{{post.link}}">
+                            <span class="mr-2 hover:mr-4 transition-fast">Keep Reading</span>
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
 </main>
+{% endblock %}
+
+{% block javascript %}
+<script>
+    new Swiper(".swiper-container", {
+        slidesPerView: 1.25,
+        loop: true,
+        autoplay: {
+            delay: 5000,
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 1.25,
+            },
+            768: {
+                slidesPerView: 2.25,
+            },
+            1024: {
+                slidesPerView: 3.25,
+            },
+        },
+    });
+</script>
+
 {% endblock %}
