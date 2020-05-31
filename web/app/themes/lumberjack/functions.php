@@ -4,6 +4,7 @@ use App\Http\Lumberjack;
 use App\Functions\EnqueueAssets;
 use App\Functions\HideCommentsInAdminSidebar;
 use App\Functions\AddAcfOptionsPage;
+use App\Functions\AddMostRecentToContext;
 use App\Functions\EditorMetaBoxUpdates;
 
 // Create the Application Container
@@ -18,6 +19,7 @@ EnqueueAssets::enqueueAssets();
 HideCommentsInAdminSidebar::hideCommentsInAdminSidebar();
 AddAcfOptionsPage::addAcfOptionsPage();
 AddAcfOptionsPage::accessAcfOptionsGlobally();
+AddMostRecentToContext::mostRecentBlogToContext();
 EditorMetaBoxUpdates::yoastToEditorBottom();
 EditorMetaBoxUpdates::hideUnusedMetaBoxes();
 EditorMetaBoxUpdates::hideDefaultEditor();

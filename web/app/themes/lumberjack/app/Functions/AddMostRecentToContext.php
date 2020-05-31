@@ -15,7 +15,6 @@ class AddMostRecentToContext
                 ->get();
 
             $context['most_recent_blog'] = $posts[0];
-
             return $context;
         });
     }
