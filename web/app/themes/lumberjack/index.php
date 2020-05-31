@@ -26,7 +26,6 @@ class IndexController extends Controller
 
         $posts = Post::builder()
             ->orderBy('date', 'asc')
-            ->limit(6)
             ->get();
 
         $context = array_merge($context, [

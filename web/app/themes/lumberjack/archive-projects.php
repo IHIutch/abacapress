@@ -17,7 +17,11 @@ class ArchiveProjectsController extends Controller
     {
         $site = new Site();
         $context = Timber::get_context();
-        $projects = Project::all(10, 'title', 'asc');
+
+        $projects = Project::builder()
+            ->orderBy('date', 'asc')
+            ->limit(6)
+            ->get();
 
         $context = array_merge($context, [
             'site' => $site,

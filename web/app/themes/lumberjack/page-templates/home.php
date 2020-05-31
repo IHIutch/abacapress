@@ -7,10 +7,14 @@ namespace App;
 
 use App\Http\Controllers\Controller;
 use App\PostTypes\Project;
+use App\Macros\CustomExcerpt;
 use Rareloop\Lumberjack\Http\Responses\TimberResponse;
 use Rareloop\Lumberjack\Page;
 use Timber\Timber;
 use Timber\Site;
+
+CustomExcerpt::getCustomExcerpt();
+
 
 class HomeController extends Controller
 {
@@ -24,6 +28,7 @@ class HomeController extends Controller
             ->orderBy('date', 'asc')
             ->limit(6)
             ->get();
+
 
         $context = array_merge($context, [
             'site' => $site,
