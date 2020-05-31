@@ -64,9 +64,9 @@
                 <div class="swiper-wrapper">
                     {% for post in more_posts %}
                     <div class="swiper-slide px-4">
-                        {% if post.thumbnail %}
+                        {% if post.custom_thumbnail %}
                         <div class="relative pb-9/16 mb-2">
-                            <img class="absolute w-full h-full object-cover" src="{{post.thumbnail.src}}">
+                            <img class="absolute w-full h-full object-cover" src="{{post.custom_thumbnail.url}}">
                         </div>
                         {% endif %}
                         <div>

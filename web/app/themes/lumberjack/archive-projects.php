@@ -3,13 +3,14 @@
 namespace App;
 
 use App\Http\Controllers\Controller;
-use App\Macros\CustomExcerpt;
+use App\Macros\CustomMeta;
 use Rareloop\Lumberjack\Http\Responses\TimberResponse;
 use App\PostTypes\Project;
 use Timber\Timber;
 use Timber\Site;
 
-CustomExcerpt::getCustomExcerpt();
+CustomMeta::getCustomExceprt();
+CustomMeta::getCustomThumbnail();
 
 class ArchiveProjectsController extends Controller
 {

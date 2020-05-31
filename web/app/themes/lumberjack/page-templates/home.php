@@ -7,13 +7,14 @@ namespace App;
 
 use App\Http\Controllers\Controller;
 use App\PostTypes\Project;
-use App\Macros\CustomExcerpt;
+use App\Macros\CustomMeta;
 use Rareloop\Lumberjack\Http\Responses\TimberResponse;
 use Rareloop\Lumberjack\Page;
 use Timber\Timber;
 use Timber\Site;
 
-CustomExcerpt::getCustomExcerpt();
+CustomMeta::getCustomExceprt();
+CustomMeta::getCustomThumbnail();
 
 
 class HomeController extends Controller

@@ -52,9 +52,9 @@
 				<div class="swiper-wrapper">
 					{% for project in projects %}
 					<div class="swiper-slide px-4">
-						{% if project.thumbnail %}
+						{% if project.custom_thumbnail.url %}
 						<div class="relative pb-9/16 mb-2">
-							<img class="absolute w-full h-full object-cover" src="{{project.thumbnail.src}}">
+							<img class="absolute w-full h-full object-cover" src="{{project.custom_thumbnail.url}}">
 						</div>
 						{% endif %}
 						<div>
