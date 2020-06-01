@@ -2,12 +2,12 @@
 
 {% block content %}
 <main id="app" class="container mx-auto px-4" role="main">
-    <div class="flex -mx-4" x-data="projects()">
+    <div class="flex -mx-4" x-data="projects()" x-init="autoLoop()">
         <div class="mb-4 w-3/12 px-4">
             {% for project in projects %}
             <button type="button" class="block w-full text-left mb-8 outline-none transition-fast"
                 :class="previewIdx == {{loop.index0}} ? 'border-red border-l-4 -ml-4 pl-3' : 'border-l-0 ml-0 pl-0'"
-                @click="assignToProjectPreview({{loop.index0}})">
+                @click="assignToProjectPreview({{loop.index0}})" data-slide="{{loop.index0}}">
                 <span class="text-sm uppercase font-barlow-condensed text-red tracking-widest font-semibold">
                     {{project.post_date | date("F d, Y")}}
                 </span>
@@ -59,9 +59,23 @@
     window.projects = function () {
         return {
             previewIdx: 0,
+            loop: null,
+            projectsCount: {{ projects | length }},
             assignToProjectPreview(idx) {
                 this.previewIdx = idx;
-            }
+                clearInterval(this.loop);
+                this.autoLoop();
+            },
+            autoLoop() {
+                var self = this;
+                this.loop = setInterval(() => {
+                    if (this.previewIdx >= this.projectsCount - 1) {
+                        this.previewIdx = 0
+                    } else {
+                        this.previewIdx = this.previewIdx + 1;
+                    }
+                }, 5000);
+            },
         }
     }
 </script>
