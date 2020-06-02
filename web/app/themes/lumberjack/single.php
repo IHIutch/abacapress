@@ -23,6 +23,7 @@ class SingleController extends Controller
         $post = new Post();
 
         $more_posts = Post::builder()
+            ->whereIdNotIn([$post->id])
             ->orderBy('date', 'asc')
             ->limit(6)
             ->get();
