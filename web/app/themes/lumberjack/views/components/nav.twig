@@ -1,34 +1,45 @@
-<nav class="flex items-center justify-end flex-wrap p-2 fixed w-full z-10 top-0 bg-tan border-b border-brown transition-fast"
-    x-data="{ isOpen: false }" @keydown.escape="isOpen = false" x-cloak>
+<div x-data="nav()" @keydown.escape="isOpen = false" x-cloak>
+    <nav class="flex items-center justify-end flex-wrap p-2 fixed w-full z-10 top-0 bg-tan border-b border-brown transition-fast overflow-hidden h-14"
+        x-bind:style="getHeight()">
 
-    <button @click="isOpen = !isOpen" type="button" class="block lg:hidden text-red focus:outline-none p-2">
-        <svg class="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path x-show="isOpen" fill-rule="evenodd" clip-rule="evenodd"
-                d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z" />
-            <path x-show="!isOpen" fill-rule="evenodd"
-                d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z" />
-        </svg>
-    </button>
+        <button @click="isOpen = !isOpen" type="button" class="block lg:hidden text-red focus:outline-none p-2">
+            <svg class="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path x-show="isOpen" fill-rule="evenodd" clip-rule="evenodd"
+                    d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z" />
+                <path x-show="!isOpen" fill-rule="evenodd"
+                    d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z" />
+            </svg>
+        </button>
 
-    <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto transition-fast"
-        :class="{ 'block': isOpen, 'hidden': !isOpen }" @click.away="isOpen = false" x-show="true"
-        x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0">
+        <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto transition-fast pb-2"
+            x-bind:class="isOpen ? 'opacity-100' : 'opacity-0'" x-ref="menu">
+            <ul class="lg:pt-0 lg:flex justify-end flex-1 items-center">
+                {% for item in menu.items %}
+                <li class="text-right mt-4 md:mt-0 md:ml-12">
+                    <a class="font-barlow-condensed text-red uppercase tracking-widest text-2xl block px-3 {{ item.current ? 'font-semibold'}}"
+                        href="
+                    {% if item.title == 'Blog' %}
+                        {{most_recent_blog.link}}
+                    {% else %}
+                        {{item.link}}
+                    {% endif %}">
+                        {{item.title}}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </nav>
+</div>
 
-        <ul class="lg:pt-0 lg:flex justify-end flex-1 items-center">
-            {% for item in menu.items %}
-            <li class="text-right mt-4 md:mt-0 md:ml-12">
-                <a class="font-barlow-condensed text-red uppercase tracking-widest text-2xl block px-3 {{ item.current ? 'font-semibold'}}"
-                    href="
-                {% if item.title == 'Blog' %}
-                    {{most_recent_blog.link}}
-                {% else %}
-                    {{item.link}}
-                {% endif %}">
-                    {{item.title}}
-                </a>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-</nav>
+<script>
+    window.nav = function () {
+        return {
+            isOpen: false,
+            getHeight() {
+                var height = this.$refs.menu.scrollHeight + 56;
+                return this.isOpen ? 'height:' + height + 'px !important' : ''
+            }
+        }
+    }
+</script>
