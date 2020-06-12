@@ -2,6 +2,10 @@
   transition: all 0.2s ease !important;
 }
 
+.transition-slow {
+  transition: all 0.6s ease !important;
+}
+
 /*! purgecss start ignore */
 .nf-form-fields-required,
 .ninja-forms-req-symbol {

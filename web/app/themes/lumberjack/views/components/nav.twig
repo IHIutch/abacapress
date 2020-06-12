@@ -1,6 +1,6 @@
 <nav x-data="nav()" @keydown.escape="isOpen = false" @click.away="isOpen = false"
     class="flex flex-wrap items-center justify-end p-2 w-full fixed z-10 top-0 bg-tan border-b border-brown transition-fast overflow-hidden h-14"
-    x-bind:style="getHeight()" x-cloak>
+    :style="getHeight()" x-cloak>
 
     <button @click="isOpen = !isOpen" type="button" class="block text-red p-2 md:hidden">
         <svg class="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -12,7 +12,7 @@
     </button>
 
     <div class="w-full transition-fast md:flex md:items-center md:w-auto pb-2 md:opacity-100"
-        x-bind:class="isOpen ? 'opacity-100' : 'opacity-0'" x-ref="menu">
+        :class="isOpen ? 'opacity-100' : 'opacity-0'" x-ref="menu">
         <ul class="w-100 justify-end items-center md:pt-0 md:flex">
             {% for item in menu.items %}
             <li class="text-right mt-4 md:mt-0 md:ml-12">
