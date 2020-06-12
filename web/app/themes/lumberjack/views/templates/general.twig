@@ -6,8 +6,8 @@
         {% for section in content %}
         <div class="transition-slow" x-data="{ isInView: false }"
             x-init="isInView = $el.offsetTop < window.scrollY + window.innerHeight ? true : false"
-            @scroll.window="isInView = $el.offsetTop < window.scrollY + window.innerHeight - 150 || isInView ? true : false"
-            :class="isInView ? 'opacity-100' : 'opacity-0'" :style="isInView ? '' : 'transform: translateY(40px)' ">
+            @scroll.window="isInView = $el.offsetTop < window.scrollY + window.innerHeight - 250 || isInView ? true : false"
+            :class="isInView ? 'opacity-100' : 'opacity-0'" :style="isInView ? '' : 'transform: translateY(80px)' ">
             <div class="flex -mx-4 mb-56 flex-wrap">
                 {% if section.acf_fc_layout == 'single_column_image' %}
                 <div class="w-full px-4 lg:w-8/12 mx-auto">
