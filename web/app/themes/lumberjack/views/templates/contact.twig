@@ -2,18 +2,24 @@
 
 {% block content %}
 <main class="container mx-auto px-4" role="main">
-    <div class="flex -mx-4 flex-wrap mb-8">
-        <div class="px-4 w-full lg:w-10/12 mx-auto">
-            <h1 class="text-5xl leading-tight font-gotu">
-                Let’s Get in Touch
-            </h1>
+    <div class="flex -mx-4 flex-wrap mb-32">
+        <div class="px-4 w-full lg:w-8/12 mx-auto">
+            <img class="w-full" src="{{image.url}}" {% if image.alt %} alt="{{image.alt}}" {% endif %}>
         </div>
     </div>
     <div class="flex -mx-4 flex-wrap">
-        <div class="px-4 w-full order-2 md:order-none md:w-1/2 mr-auto lg:mx-auto lg:w-5/12">
+        <div class="px-4 w-full">
+
+        </div>
+        <div class="px-4 w-full order-2 md:order-none md:w-1/2 lg:ml-auto lg:w-7/12 mr-auto xl:mx-auto xl:w-5/12">
+            <div class="mb-8">
+                <h1 class="text-5xl leading-tight font-gotu">
+                    {{headline}}
+                </h1>
+            </div>
             <div>
                 {% filter shortcodes %}
-                [ninja_form id=1]
+                {{form_shortcode}}
                 {% endfilter %}
             </div>
         </div>
@@ -55,9 +61,7 @@
                 <div class="w-full">
                     <div class="relative pb-2/3 border-red border-2 mb-6">
                         <div class="absolute w-full h-full p-1">
-                            <div id="googleMap" class="w-full h-full bg-gray-500">
-
-                            </div>
+                            <div id="googleMap" class="w-full h-full bg-gray-500"></div>
                         </div>
                     </div>
                     <div>

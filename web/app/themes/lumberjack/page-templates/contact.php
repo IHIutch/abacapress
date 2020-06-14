@@ -22,6 +22,9 @@ class ContactController extends Controller
         $context = array_merge($context, [
             'site' => $site,
             'title' => $page->title,
+            'image' => get_field('image'),
+            'headline' => get_field('headline'),
+            'form_shortcode' => get_field('form_shortcode'),
         ]);
 
         return new TimberResponse('templates/contact.twig', $context);
