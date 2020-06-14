@@ -2,7 +2,7 @@
 
 {% block content %}
 <main role="main">
-    <div class="container mx-auto px-4 post" x-data="fadeWrapper()" x-init="startObserver()">
+    <div class="container mx-auto px-4 post">
         {% for section in content %}
         <div class="flex -mx-4 mb-56 flex-wrap">
             {% if section.acf_fc_layout == 'single_column_image' %}
@@ -116,37 +116,6 @@
             }
         }
     });
-
-    window.fadeWrapper = function () {
-        return {
-            startObserver() {
-                const sections = document.querySelectorAll('[data-fade]');
-                const config = {
-                    root: null,
-                    rootMargin: '0px',
-                    threshold: 0.2
-                };
-
-                let observer = new IntersectionObserver(function (entries, self) {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.remove("opacity-0");
-                            entry.target.classList.add("opacity-100");
-                            entry.target.style.transform = "translateY(0)"
-                            observer.unobserve(entry.target)
-                        } else {
-                            entry.target.classList.add("opacity-0");
-                            entry.target.classList.remove("opacity-100");
-                            entry.target.style.transform = "translateY(80px)"
-                        }
-                    });
-                }, config);
-                sections.forEach(section => {
-                    observer.observe(section);
-                });
-            }
-        }
-    }
 </script>
 
 {% endblock %}

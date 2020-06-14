@@ -6,10 +6,12 @@
 <body class="{{ body_class }} font-karla bg-tan text-brown antialiased">
     {% include 'components/nav.twig' %}
 
-    <div class="mt-40">
-        {% block content %}
-        <p>Sorry, no content</p>
-        {% endblock %}
+    <div x-data="fadeWrapper()" x-init="startObserver(), fadePage()">
+        <div x-ref="pageWrapper" class="mt-40 opacity-0 transition-slow" style="transform: translateY(80px)">
+            {% block content %}
+            <p>Sorry, no content</p>
+            {% endblock %}
+        </div>
     </div>
 
     {% include 'components/footer.twig' %}
@@ -17,6 +19,45 @@
 
     {% block javascript %}
     {% endblock %}
+
+    <script>
+        window.fadeWrapper = function () {
+            return {
+                startObserver() {
+                    const sections = document.querySelectorAll('[data-fade]');
+                    const config = {
+                        root: null,
+                        rootMargin: '0px',
+                        threshold: 0.2
+                    };
+
+                    let observer = new IntersectionObserver(function (entries, self) {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.remove("opacity-0");
+                                entry.target.classList.add("opacity-100");
+                                entry.target.style.transform = "translateY(0)";
+                                observer.unobserve(entry.target)
+                            } else {
+                                entry.target.classList.add("opacity-0");
+                                entry.target.classList.remove("opacity-100");
+                                entry.target.style.transform = "translateY(80px)";
+                            }
+                        });
+                    }, config);
+                    sections.forEach(section => {
+                        observer.observe(section);
+                    });
+                },
+                fadePage() {
+                    this.$refs.pageWrapper.classList.remove("opacity-0");
+                    this.$refs.pageWrapper.classList.add("opacity-100");
+                    this.$refs.pageWrapper.style.transform = "translateY(0)"
+                }
+            }
+        }
+    </script>
+
 </body>
 
 </html>
