@@ -16,6 +16,7 @@ module.exports = {
       },
       colors: {
         tan: "#F7F0E9",
+        "tan-600": "#E0D3C2",
         brown: "#3D1F00",
         red: "#FF4552",
       },
